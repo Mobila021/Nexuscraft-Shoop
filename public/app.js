@@ -20,6 +20,16 @@ let selectedProduct = null;
 const money = value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const $ = id => document.getElementById(id);
 
+// Evita cartões duplicados caso um produto esteja repetido no HTML.
+const seenProducts = new Set();
+document.querySelectorAll('.product').forEach(card => {
+  const buyButton = card.querySelector('[data-product]');
+  const name = buyButton?.dataset.product;
+  if (!name) return;
+  if (seenProducts.has(name)) card.remove();
+  else seenProducts.add(name);
+});
+
 const categoryCopy = {
   todos: ['Todos os produtos', 'Escolha o que combina com sua aventura.'],
   moedas: ['Moedas', 'Escolha o pacote de moedas para sua jornada.'],
