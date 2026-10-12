@@ -2,6 +2,8 @@ const products = {
   '1.000 Moedas': { price: 5, category: 'moedas', icon: '🪙' },
   '5.000 Moedas': { price: 8, category: 'moedas', icon: '💰' },
   '10.000 Moedas': { price: 12, category: 'moedas', icon: '💎' },
+  '50.000 Moedas': { price: 15, category: 'moedas', icon: '💎' },
+  '50.000 Moedas': { price: 15, category: 'moedas', icon: '💎' },
   'Kit Básico': { price: 5, category: 'kits', icon: '🎒' },
   'Kit Ferramentas': { price: 7, category: 'kits', icon: '⛏️' },
   'Kit Combate': { price: 12, category: 'kits', icon: '⚔️' },
@@ -29,6 +31,7 @@ document.querySelectorAll('.category').forEach(button => button.addEventListener
     if (show) visible++;
   });
   $('noProducts').classList.toggle('hidden', visible > 0);
+  if (button.dataset.category !== 'todos') $('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }));
 
 document.querySelectorAll('[data-product]').forEach(button => button.addEventListener('click', () => {
