@@ -1,79 +1,26 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#031326">
-  <title>NexusCraft Shoop — Finalizar compra</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#031326"><title>NexusCraft Shoop — Loja</title><link rel="stylesheet" href="/style.css"></head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#" aria-label="NexusCraft Shoop">
-    <span class="brand-mark">N</span>
-    <span class="brand-words"><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span>
-  </a>
-  <nav><a href="#inicio">⌂ <span>Início</span></a><a href="#loja">🛒 <span>Loja</span></a><a href="#sobre">⬡ <span>Sobre o Servidor</span></a><a href="#duvidas">❔ <span>Dúvidas</span></a></nav>
-  <a class="discord" href="#duvidas">◉ Discord</a>
-</header>
-
-<section class="hero" id="inicio">
-  <div class="hero-icon">🛒</div>
-  <div><h1>Finalizar Compra</h1><p>Escolha o método de pagamento e finalize seu pedido de forma segura.</p></div>
-  <div class="hero-art" aria-hidden="true"><span>Jogue agora,<br>com vantagens<br>reais!</span></div>
-</section>
-
-<main>
-  <div class="steps">
-    <div class="step active"><b>1</b><span>Pagamento</span></div><i></i>
-    <div class="step"><b>2</b><span>Confirmação</span></div><i></i>
-    <div class="step"><b>3</b><span>Entrega</span></div><i></i>
-    <div class="step"><b>4</b><span>Concluído</span></div>
-  </div>
-
-  <div class="checkout-grid">
-    <section class="panel summary" id="loja">
-      <h2><span class="heading-icon">▤</span> Resumo do Pedido</h2>
-      <div class="product">
-        <div class="product-art">👑</div>
-        <div class="product-info"><strong>VIP ULTRA <small>30 Dias</small></strong><p>Acesso a todos os comandos, kits exclusivos e muito mais!</p></div>
-        <strong class="price">R$ 49,90</strong>
-      </div>
-      <label for="nickname">♟ &nbsp;Nick no Minecraft</label>
-      <input id="nickname" placeholder="Ex: NexusCraft" maxlength="16" autocomplete="off">
-      <div class="totals"><div><span>Subtotal</span><strong id="subtotal">R$ 49,90</strong></div><div><span>Taxa de pagamento</span><strong id="fee">R$ 0,00</strong></div><div class="total"><span>Total</span><strong id="total">R$ 49,90</strong></div></div>
-      <div class="secure"><span class="shield">✓</span><div><strong>Compra segura</strong><p>O pagamento será verificado antes da entrega dos itens.</p></div></div>
-      <div class="benefits"><div><b>ϟ</b><span>Entrega automática</span></div><div><b>♢</b><span>Dados protegidos</span></div><div><b>♧</b><span>Suporte via Discord</span></div></div>
-    </section>
-
-    <section class="panel methods">
-      <h2><span class="pix-symbol">◆</span><span>Escolha seu método de pagamento<small>Selecione a opção que deseja usar para realizar o pagamento.</small></span></h2>
-      <div class="method-list" role="radiogroup" aria-label="Método de pagamento">
-        <button class="method selected" type="button" role="radio" aria-checked="true" data-method="pix">
-          <span class="radio"></span><span class="provider-logo pix">PIX</span><span class="method-copy"><strong>Pix</strong><small>Pague com Nubank, Inter, Mercado Pago e outros bancos</small></span><span class="tag">Mais popular</span><span class="end-radio"></span>
-        </button>
-        <button class="method" type="button" role="radio" aria-checked="false" data-method="card">
-          <span class="radio"></span><span class="provider-logo card">▰</span><span class="method-copy"><strong>Cartão de crédito</strong><small>Visa, Mastercard e bandeiras disponíveis no provedor</small></span><span class="tag">Prático</span><span class="end-radio"></span>
-        </button>
-        <button class="method" type="button" role="radio" aria-checked="false" data-method="mp">
-          <span class="radio"></span><span class="provider-logo mp">MP</span><span class="method-copy"><strong>Mercado Pago</strong><small>Finalize pelo ambiente seguro do Mercado Pago</small></span><span class="tag">Opção extra</span><span class="end-radio"></span>
-        </button>
-        <button class="method" type="button" role="radio" aria-checked="false" data-method="asaas">
-          <span class="radio"></span><span class="provider-logo asaas">A</span><span class="method-copy"><strong>Asaas</strong><small>Pix e cartão, conforme configuração da loja</small></span><span class="tag">Alternativa</span><span class="end-radio"></span>
-        </button>
-      </div>
-      <div class="notice"><span>i</span><p id="method-note">Com Pix, o jogador pode pagar pelo aplicativo do banco ou carteira digital que preferir.</p></div>
-      <button class="continue" id="continue" type="button">▦ &nbsp; Continuar para o pagamento <span>→</span></button>
-      <p class="demo-note">Demonstração visual: os pagamentos reais ainda precisam ser conectados às contas dos provedores.</p>
-    </section>
-  </div>
-</main>
-
-<footer id="sobre">
-  <a class="brand footer-brand" href="#"><span class="brand-mark">N</span><span class="brand-words"><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span></a>
-  <p>Mais que um servidor, uma comunidade!</p><div class="footer-item">🎮 <span><strong>Java e Bedrock</strong><small>Jogue do seu jeito</small></span></div><div class="footer-item">♢ <span><strong>Segurança</strong><small>Seus dados protegidos</small></span></div><div class="footer-item" id="duvidas">♧ <span><strong>Suporte</strong><small>Atendimento via Discord</small></span></div>
-</footer>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="/app.js"></script>
-</body>
-</html>
+<header class="topbar"><a class="brand" href="#inicio" onclick="backToShop()"><span class="brand-mark">N</span><span><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span></a><nav><a href="#inicio" onclick="backToShop()">⌂ Início</a><a href="#loja" onclick="backToShop()">🛒 Loja</a><a href="#sobre">⬡ Servidor</a></nav><a class="discord" href="https://discord.gg/hz5z6xGQ8" target="_blank" rel="noopener">Discord ↗</a></header>
+<section class="hero" id="inicio"><p class="eyebrow">LOJA OFICIAL DO SERVIDOR</p><h1>Suas vantagens<br><span>por até R$ 10!</span></h1><p>Escolha moedas, kits, VIPs, chaves ou crates para sua aventura no NexusCraft. Java + Bedrock.</p><div class="status">◆ JAVA + BEDROCK</div></section>
+<main><section class="shop" id="loja"><div class="section-head"><div><p class="eyebrow">CATÁLOGO</p><h2>Encontre seu produto</h2><p class="muted">Todos os preços são de até R$ 10,00. Escolha uma categoria.</p></div><span class="secure">◇ NEXUSCRAFT SHOOP</span></div>
+<div class="categories" role="group" aria-label="Filtrar categorias"><button class="category active" onclick="filterProducts('todos',this)">Todos</button><button class="category" onclick="filterProducts('moedas',this)">🪙 Moedas</button><button class="category" onclick="filterProducts('kits',this)">⚔ Kits</button><button class="category" onclick="filterProducts('vips',this)">♛ VIPs</button><button class="category" onclick="filterProducts('chaves',this)">🗝 Chaves</button><button class="category" onclick="filterProducts('crates',this)">📦 Crates</button></div>
+<div class="products" id="products">
+<article class="product" data-category="moedas"><div class="product-icon">🪙</div><span class="pill">MOEDAS</span><h3>1.000 Moedas</h3><p>Um pequeno pacote para usar na economia do servidor.</p><div class="price">R$ 2,00</div><button onclick="selectProduct('1.000 Moedas',2,'moedas')">Comprar agora</button></article>
+<article class="product" data-category="moedas"><div class="product-icon">💰</div><span class="pill">MAIS MOEDAS</span><h3>5.000 Moedas</h3><p>Mais moedas para suas compras dentro do servidor.</p><div class="price">R$ 5,00</div><button onclick="selectProduct('5.000 Moedas',5,'moedas')">Comprar agora</button></article>
+<article class="product" data-category="moedas"><div class="product-icon">💎</div><span class="pill">PACOTE GRANDE</span><h3>10.000 Moedas</h3><p>Um pacote maior para quem quer juntar mais saldo.</p><div class="price">R$ 9,90</div><button onclick="selectProduct('10.000 Moedas',9.9,'moedas')">Comprar agora</button></article>
+<article class="product" data-category="kits"><div class="product-icon">🎒</div><span class="pill">KIT</span><h3>Kit Básico</h3><p>Itens iniciais para ajudar na sua aventura.</p><div class="price">R$ 2,00</div><button onclick="selectProduct('Kit Básico',2,'kits')">Comprar agora</button></article>
+<article class="product" data-category="kits"><div class="product-icon">⛏️</div><span class="pill">FERRAMENTAS</span><h3>Kit Ferramentas</h3><p>Um conjunto de ferramentas para facilitar o começo.</p><div class="price">R$ 4,00</div><button onclick="selectProduct('Kit Ferramentas',4,'kits')">Comprar agora</button></article>
+<article class="product" data-category="kits"><div class="product-icon">⚔️</div><span class="pill">COMBATE</span><h3>Kit Combate</h3><p>Equipamentos de combate definidos pela equipe.</p><div class="price">R$ 7,00</div><button onclick="selectProduct('Kit Combate',7,'kits')">Comprar agora</button></article>
+<article class="product" data-category="vips"><div class="product-icon">🥉</div><span class="pill">VIP</span><h3>VIP Básico</h3><p>Benefícios de entrada por período a definir.</p><div class="price">R$ 4,00</div><button onclick="selectProduct('VIP Básico',4,'vips')">Comprar agora</button></article>
+<article class="product" data-category="vips"><div class="product-icon">🥈</div><span class="pill">VIP PLUS</span><h3>VIP Plus</h3><p>Benefícios adicionais conforme as regras do servidor.</p><div class="price">R$ 7,00</div><button onclick="selectProduct('VIP Plus',7,'vips')">Comprar agora</button></article>
+<article class="product" data-category="vips"><div class="product-icon">🥇</div><span class="pill">VIP PREMIUM</span><h3>VIP Prêmio</h3><p>Um pacote VIP especial com benefícios a definir.</p><div class="price">R$ 10,00</div><button onclick="selectProduct('VIP Prêmio',10,'vips')">Comprar agora</button></article>
+<article class="product" data-category="chaves"><div class="product-icon">🗝️</div><span class="pill">CHAVE</span><h3>Chave Comum</h3><p>Para abrir uma caixa comum, se configurada no servidor.</p><div class="price">R$ 1,00</div><button onclick="selectProduct('Chave Comum',1,'chaves')">Comprar agora</button></article>
+<article class="product" data-category="chaves"><div class="product-icon">🔑</div><span class="pill">CHAVE RARA</span><h3>Chave Rara</h3><p>Chave de raridade superior, conforme as caixas disponíveis.</p><div class="price">R$ 4,00</div><button onclick="selectProduct('Chave Rara',4,'chaves')">Comprar agora</button></article>
+<article class="product" data-category="chaves"><div class="product-icon">✨</div><span class="pill">CHAVE ÉPICA</span><h3>Chave Épica</h3><p>Para caixas épicas, caso estejam ativadas no servidor.</p><div class="price">R$ 8,00</div><button onclick="selectProduct('Chave Épica',8,'chaves')">Comprar agora</button></article>
+<article class="product" data-category="crates"><div class="product-icon">📦</div><span class="pill">CRATE</span><h3>Crate Comum</h3><p>Caixa de recompensas comuns configuradas no servidor.</p><div class="price">R$ 2,00</div><button onclick="selectProduct('Crate Comum',2,'crates')">Comprar agora</button></article>
+<article class="product" data-category="crates"><div class="product-icon">🎁</div><span class="pill">CRATE RARA</span><h3>Crate Rara</h3><p>Caixa com recompensas raras, se disponível.</p><div class="price">R$ 5,00</div><button onclick="selectProduct('Crate Rara',5,'crates')">Comprar agora</button></article>
+<article class="product" data-category="crates"><div class="product-icon">🌟</div><span class="pill">CRATE LENDÁRIA</span><h3>Crate Lendária</h3><p>Caixa especial com recompensas definidas no servidor.</p><div class="price">R$ 10,00</div><button onclick="selectProduct('Crate Lendária',10,'crates')">Comprar agora</button></article>
+</div><p id="noProducts" class="muted hidden">Não há produtos nesta categoria.</p></section>
+<section class="checkout panel hidden" id="checkout"><div class="checkout-head"><div><p class="eyebrow">SEU PEDIDO</p><h2>Finalizar compra</h2></div><button class="back" onclick="backToShop()">← Voltar à loja</button></div><div class="checkout-grid"><div><div class="chosen"><div class="product-icon" id="chosenIcon">🪙</div><div class="chosen-info"><strong id="chosenName">1.000 Moedas</strong><p>Produto selecionado</p></div><strong class="price" id="chosenPrice">R$ 2,00</strong></div><label for="nickname">Nick no Minecraft (Java ou Bedrock)</label><input id="nickname" maxlength="16" placeholder="Ex: SeuNick" autocomplete="off"><p class="hint">Digite seu nick corretamente para evitar erros na entrega.</p><div class="total"><span>Total</span><strong id="total">R$ 2,00</strong></div></div><div><h3>Escolha como pagar</h3><button class="method selected" onclick="choosePayment(this,'Pix')">◇ Pix — Nubank, Inter e outros</button><button class="method" onclick="choosePayment(this,'Cartão de crédito')">▰ Cartão de crédito</button><button class="method" onclick="choosePayment(this,'Mercado Pago')">◉ Mercado Pago</button><button class="pay" onclick="continuePayment()">Continuar para pagamento →</button><p id="message" role="status"></p><p class="hint">Demonstração visual: pagamentos reais e entrega automática ainda precisam ser integrados antes de vender.</p></div></div></section>
+<section class="steps" id="sobre"><div><b>01</b><h3>Escolha</h3><p>Filtre por categoria e selecione um produto.</p></div><div><b>02</b><h3>Pague</h3><p>O provedor de pagamentos será conectado nesta etapa.</p></div><div><b>03</b><h3>Receba</h3><p>A entrega automática só será ativada após a confirmação segura do pagamento e a integração com o servidor.</p></div></section></main><footer>© NexusCraft Shoop · <a href="https://discord.gg/hz5z6xGQ8" target="_blank" rel="noopener">Suporte no Discord</a><p>Produtos, preços e benefícios são exemplos. Confirme que existem no servidor antes de vender. Esta versão não processa pagamentos reais.</p></footer><script src="/app.js"></script></body></html>
