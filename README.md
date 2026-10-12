@@ -13,7 +13,6 @@ Em Environment, adicione uma variável para cada produto. Copie o link de checko
 - `KIWIFY_URL_MOEDAS_5000`
 - `KIWIFY_URL_MOEDAS_10000`
 - `KIWIFY_URL_MOEDAS_50000`
-- `KIWIFY_URL_MOEDAS_50000`
 - `KIWIFY_URL_KIT_BASICO`
 - `KIWIFY_URL_KIT_FERRAMENTAS`
 - `KIWIFY_URL_KIT_COMBATE`
@@ -34,7 +33,7 @@ Não coloque tokens, chaves secretas, senhas ou credenciais no GitHub.
 2. O nick Minecraft ainda não foi conectado ao checkout/webhook: o mecanismo de campos adicionais aceito pelo checkout Kiwify precisa ser confirmado antes de prometer entrega automática.
 3. Não há webhook de compra aprovada nem entrega Minecraft implementados nesta versão. Não entregue itens com base apenas no retorno do navegador. A entrega deve depender de evento confiável de compra aprovada, validação do webhook, verificação de produto/valor e controle contra eventos repetidos.
 4. Confirme no painel Kiwify os preços permitidos, taxas, políticas de venda e os links certos para cada produto.
-5. Os preços no catálogo são: 1.000 Moedas R$5; 5.000 Moedas R$8; 10.000 Moedas R$12; 50.000 Moedas R$15; Kit Básico R$5; Kit Ferramentas R$7; Kit Combate R$12; VIP Básico R$10; VIP Plus R$17; VIP Premium R$25; Chave Comum R$5; Chave Rara R$8; Chave Épica R$15; Crate Comum R$5; Crate Rara R$10; Crate Lendária R$20.
+5. Os preços no catálogo são: 1.000 Moedas R$5; 5.000 Moedas R$8; 10.000 Moedas R$12; Kit Básico R$5; Kit Ferramentas R$7; Kit Combate R$12; VIP Básico R$10; VIP Plus R$17; VIP Premium R$25; Chave Comum R$5; Chave Rara R$8; Chave Épica R$15; Crate Comum R$5; Crate Rara R$10; Crate Lendária R$20.
 
 ## Rotas disponíveis
 - `GET /api/produtos` — retorna o catálogo e os valores oficiais.
