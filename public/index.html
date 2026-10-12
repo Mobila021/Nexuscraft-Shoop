@@ -1,1 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#031326">
+  <title>NexusCraft Shoop — Finalizar compra</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="NexusCraft Shoop">
+    <span class="brand-mark">N</span>
+    <span class="brand-words"><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span>
+  </a>
+  <nav><a href="#inicio">⌂ <span>Início</span></a><a href="#loja">🛒 <span>Loja</span></a><a href="#sobre">⬡ <span>Sobre o Servidor</span></a><a href="#duvidas">❔ <span>Dúvidas</span></a></nav>
+  <a class="discord" href="#duvidas">◉ Discord</a>
+</header>
 
+<section class="hero" id="inicio">
+  <div class="hero-icon">🛒</div>
+  <div><h1>Finalizar Compra</h1><p>Escolha o método de pagamento e finalize seu pedido de forma segura.</p></div>
+  <div class="hero-art" aria-hidden="true"><span>Jogue agora,<br>com vantagens<br>reais!</span></div>
+</section>
+
+<main>
+  <div class="steps">
+    <div class="step active"><b>1</b><span>Pagamento</span></div><i></i>
+    <div class="step"><b>2</b><span>Confirmação</span></div><i></i>
+    <div class="step"><b>3</b><span>Entrega</span></div><i></i>
+    <div class="step"><b>4</b><span>Concluído</span></div>
+  </div>
+
+  <div class="checkout-grid">
+    <section class="panel summary" id="loja">
+      <h2><span class="heading-icon">▤</span> Resumo do Pedido</h2>
+      <div class="product">
+        <div class="product-art">👑</div>
+        <div class="product-info"><strong>VIP ULTRA <small>30 Dias</small></strong><p>Acesso a todos os comandos, kits exclusivos e muito mais!</p></div>
+        <strong class="price">R$ 49,90</strong>
+      </div>
+      <label for="nickname">♟ &nbsp;Nick no Minecraft</label>
+      <input id="nickname" placeholder="Ex: NexusCraft" maxlength="16" autocomplete="off">
+      <div class="totals"><div><span>Subtotal</span><strong id="subtotal">R$ 49,90</strong></div><div><span>Taxa de pagamento</span><strong id="fee">R$ 0,00</strong></div><div class="total"><span>Total</span><strong id="total">R$ 49,90</strong></div></div>
+      <div class="secure"><span class="shield">✓</span><div><strong>Compra segura</strong><p>O pagamento será verificado antes da entrega dos itens.</p></div></div>
+      <div class="benefits"><div><b>ϟ</b><span>Entrega automática</span></div><div><b>♢</b><span>Dados protegidos</span></div><div><b>♧</b><span>Suporte via Discord</span></div></div>
+    </section>
+
+    <section class="panel methods">
+      <h2><span class="pix-symbol">◆</span><span>Escolha seu método de pagamento<small>Selecione a opção que deseja usar para realizar o pagamento.</small></span></h2>
+      <div class="method-list" role="radiogroup" aria-label="Método de pagamento">
+        <button class="method selected" type="button" role="radio" aria-checked="true" data-method="pix">
+          <span class="radio"></span><span class="provider-logo pix">PIX</span><span class="method-copy"><strong>Pix</strong><small>Pague com Nubank, Inter, Mercado Pago e outros bancos</small></span><span class="tag">Mais popular</span><span class="end-radio"></span>
+        </button>
+        <button class="method" type="button" role="radio" aria-checked="false" data-method="card">
+          <span class="radio"></span><span class="provider-logo card">▰</span><span class="method-copy"><strong>Cartão de crédito</strong><small>Visa, Mastercard e bandeiras disponíveis no provedor</small></span><span class="tag">Prático</span><span class="end-radio"></span>
+        </button>
+        <button class="method" type="button" role="radio" aria-checked="false" data-method="mp">
+          <span class="radio"></span><span class="provider-logo mp">MP</span><span class="method-copy"><strong>Mercado Pago</strong><small>Finalize pelo ambiente seguro do Mercado Pago</small></span><span class="tag">Opção extra</span><span class="end-radio"></span>
+        </button>
+        <button class="method" type="button" role="radio" aria-checked="false" data-method="asaas">
+          <span class="radio"></span><span class="provider-logo asaas">A</span><span class="method-copy"><strong>Asaas</strong><small>Pix e cartão, conforme configuração da loja</small></span><span class="tag">Alternativa</span><span class="end-radio"></span>
+        </button>
+      </div>
+      <div class="notice"><span>i</span><p id="method-note">Com Pix, o jogador pode pagar pelo aplicativo do banco ou carteira digital que preferir.</p></div>
+      <button class="continue" id="continue" type="button">▦ &nbsp; Continuar para o pagamento <span>→</span></button>
+      <p class="demo-note">Demonstração visual: os pagamentos reais ainda precisam ser conectados às contas dos provedores.</p>
+    </section>
+  </div>
+</main>
+
+<footer id="sobre">
+  <a class="brand footer-brand" href="#"><span class="brand-mark">N</span><span class="brand-words"><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span></a>
+  <p>Mais que um servidor, uma comunidade!</p><div class="footer-item">🎮 <span><strong>Java e Bedrock</strong><small>Jogue do seu jeito</small></span></div><div class="footer-item">♢ <span><strong>Segurança</strong><small>Seus dados protegidos</small></span></div><div class="footer-item" id="duvidas">♧ <span><strong>Suporte</strong><small>Atendimento via Discord</small></span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js"></script>
+</body>
+</html>
