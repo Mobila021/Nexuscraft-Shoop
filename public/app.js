@@ -3,7 +3,6 @@ const products = {
   '5.000 Moedas': { price: 8, category: 'moedas', icon: '💰' },
   '10.000 Moedas': { price: 12, category: 'moedas', icon: '💎' },
   '50.000 Moedas': { price: 15, category: 'moedas', icon: '💎' },
-  '50.000 Moedas': { price: 15, category: 'moedas', icon: '💎' },
   'Kit Básico': { price: 5, category: 'kits', icon: '🎒' },
   'Kit Ferramentas': { price: 7, category: 'kits', icon: '⛏️' },
   'Kit Combate': { price: 12, category: 'kits', icon: '⚔️' },
@@ -21,17 +20,29 @@ let selectedProduct = null;
 const money = value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const $ = id => document.getElementById(id);
 
+const categoryCopy = {
+  todos: ['Todos os produtos', 'Escolha o que combina com sua aventura.'],
+  moedas: ['Moedas', 'Escolha o pacote de moedas para sua jornada.'],
+  kits: ['Kits', 'Equipamentos e conjuntos para se preparar para a aventura.'],
+  vips: ['VIPs', 'Confira os planos e benefícios disponíveis.'],
+  chaves: ['Chaves', 'Encontre chaves para as recompensas do servidor.'],
+  crates: ['Crates', 'Escolha sua caixa de recompensas.']
+};
 document.querySelectorAll('.category').forEach(button => button.addEventListener('click', () => {
   document.querySelectorAll('.category').forEach(item => item.classList.remove('active'));
   button.classList.add('active');
+  const category = button.dataset.category;
+  const copy = categoryCopy[category] || categoryCopy.todos;
+  $('categoryTitle').textContent = copy[0];
+  $('categoryDescription').textContent = copy[1];
   let visible = 0;
   document.querySelectorAll('.product').forEach(card => {
-    const show = button.dataset.category === 'todos' || card.dataset.category === button.dataset.category;
+    const show = category === 'todos' || card.dataset.category === category;
     card.classList.toggle('hidden', !show);
     if (show) visible++;
   });
   $('noProducts').classList.toggle('hidden', visible > 0);
-  if (button.dataset.category !== 'todos') $('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  $('loja').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }));
 
 document.querySelectorAll('[data-product]').forEach(button => button.addEventListener('click', () => {
