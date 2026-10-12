@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 
@@ -40,7 +41,7 @@ app.post('/criar-pagamento', async (req, res) => {
       });
     }
 
-    if (!BASE_URL || !/^https:\/\/[^/]+$/i.test(BASE_URL)) {
+    if (!/^https:\/\/.+/i.test(BASE_URL)) {
       return res.status(500).json({
         error: 'Configure PUBLIC_BASE_URL com a URL HTTPS da loja.'
       });
@@ -67,6 +68,29 @@ app.post('/criar-pagamento', async (req, res) => {
     }
 
     const price = PRODUCTS[produto];
+    const metodo = typeof pagamento === 'string' ? pagamento : 'Pix';
+
+    const paymentMethods = {};
+
+    // Se o cliente escolher Pix, prioriza Pix e exclui
+    // cartões e boleto da página de pagamento.
+    if (metodo.toLowerCase().includes('pix')) {
+      paymentMethods.default_payment_method_id = 'pix';
+      paymentMethods.excluded_payment_types = [
+        { id: 'credit_card' },
+        { id: 'debit_card' },
+        { id: 'prepaid_card' },
+        { id: 'ticket' }
+      ];
+    }
+
+    // Se escolher cartão, tenta deixar apenas cartões.
+    if (metodo.toLowerCase().includes('cartão')) {
+      paymentMethods.excluded_payment_types = [
+        { id: 'bank_transfer' },
+        { id: 'ticket' }
+      ];
+    }
 
     const payload = {
       items: [{
@@ -90,10 +114,13 @@ app.post('/criar-pagamento', async (req, res) => {
       metadata: {
         product: produto,
         minecraft_nick: nick.trim(),
-        selected_payment_method:
-          typeof pagamento === 'string' ? pagamento : 'Pix'
+        selected_payment_method: metodo
       }
     };
+
+    if (Object.keys(paymentMethods).length > 0) {
+      payload.payment_methods = paymentMethods;
+    }
 
     const response = await fetch(
       'https://api.mercadopago.com/checkout/preferences',
@@ -110,20 +137,16 @@ app.post('/criar-pagamento', async (req, res) => {
     const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
-      console.error(
-        'Erro do Mercado Pago:',
-        response.status,
-        data
-      );
+      console.error('Erro do Mercado Pago:', response.status, data);
 
       return res.status(502).json({
-        error: 'Não foi possível criar o pagamento.'
+        error: 'O Mercado Pago não conseguiu criar o pagamento. Verifique os logs do servidor.'
       });
     }
 
     if (!data.init_point) {
       return res.status(502).json({
-        error: 'Link de pagamento não recebido.'
+        error: 'O link de pagamento não foi recebido.'
       });
     }
 
@@ -142,7 +165,8 @@ app.post('/criar-pagamento', async (req, res) => {
   }
 });
 
-// Recebe notificações, mas ainda não confirma nem entrega os produtos.
+// ATENÇÃO: este webhook é provisório.
+// Ele ainda não verifica a assinatura nem confirma pagamentos.
 app.post('/webhook/mercadopago', (req, res) => {
   console.log('Notificação do Mercado Pago recebida.');
   return res.sendStatus(200);
