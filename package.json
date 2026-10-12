@@ -1,7 +1,12 @@
 {
-  "name": "nexuscraft-shoop",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {"start": "node server.js"},
-  "dependencies": {"express": "^4.21.2"}
+"name": "nexuscraft-shoop",
+"version": "1.0.0",
+"private": true,
+"scripts": {
+"start": "node server.js"
+},
+"dependencies": {
+"express": "^4.21.2",
+"mercadopago": "^2.0.0"
+}
 }
