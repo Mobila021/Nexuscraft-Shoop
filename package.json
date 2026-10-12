@@ -1,12 +1,8 @@
 {
-"name": "nexuscraft-shoop",
-"version": "1.0.0",
-"private": true,
-"scripts": {
-"start": "node server.js"
-},
-"dependencies": {
-"express": "^4.21.2",
-"mercadopago": "^2.0.0"
-}
+  "name": "nexuscraft-shoop",
+  "version": "2.0.0",
+  "private": true,
+  "description": "NexusCraft Shoop com catálogo atualizado e preparação para checkout Kiwify",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.21.2" }
 }
