@@ -11,6 +11,8 @@ const PRODUCTS = {
   '1.000 Moedas': { price: 5.00, checkoutEnv: 'KIWIFY_URL_MOEDAS_1000' },
   '5.000 Moedas': { price: 8.00, checkoutEnv: 'KIWIFY_URL_MOEDAS_5000' },
   '10.000 Moedas': { price: 12.00, checkoutEnv: 'KIWIFY_URL_MOEDAS_10000' },
+  '50.000 Moedas': { price: 15.00, checkoutEnv: 'KIWIFY_URL_MOEDAS_50000' },
+  '50.000 Moedas': { price: 15.00, checkoutEnv: 'KIWIFY_URL_MOEDAS_50000' },
   'Kit Básico': { price: 5.00, checkoutEnv: 'KIWIFY_URL_KIT_BASICO' },
   'Kit Ferramentas': { price: 7.00, checkoutEnv: 'KIWIFY_URL_KIT_FERRAMENTAS' },
   'Kit Combate': { price: 12.00, checkoutEnv: 'KIWIFY_URL_KIT_COMBATE' },
