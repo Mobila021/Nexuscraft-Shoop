@@ -340,6 +340,65 @@ document.querySelectorAll('.category-card, [data-category="todos"].text-link').f
   button.addEventListener('click', () => filterCategory(button.dataset.category || 'todos'));
 });
 
+// Renderiza automaticamente no catálogo os produtos cadastrados em `products`
+// que ainda não possuem um card estático no index.html.
+(function renderMissingProductCards() {
+  const grid = $('products');
+  if (!grid) return;
+  const existing = new Set(Array.from(grid.querySelectorAll('[data-product]')).map(button => button.dataset.product));
+  const categoryLabels = {
+    vips: 'VIP', kits: 'KITS', moedas: 'MOEDAS', xp: 'NÍVEIS DE XP',
+    chaves: 'CHAVES', crates: 'CAIXAS', spawners: 'GERADORES DE MOBS',
+    enchants: 'LIVROS DE ENCANTAMENTOS', armor: 'MELHORIAS PARA ARMADURAS'
+  };
+  Object.entries(products).forEach(([name, product]) => {
+    if (existing.has(name)) return;
+    const card = document.createElement('article');
+    card.className = 'product';
+    card.dataset.category = product.category;
+    const art = document.createElement('div');
+    art.className = 'product-art';
+    art.setAttribute('aria-label', `Imagem de ${name}`);
+    const fallback = document.createElement('span');
+    fallback.className = 'image-fallback';
+    fallback.textContent = product.icon || '🎁';
+    const glow = document.createElement('span');
+    glow.className = 'art-glow';
+    glow.setAttribute('aria-hidden', 'true');
+    art.append(fallback, glow);
+    const meta = document.createElement('div');
+    meta.className = 'product-meta';
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    pill.textContent = product.tier ? `${product.tier.toUpperCase()} · ${categoryLabels[product.category] || 'PRODUTO'}` : (categoryLabels[product.category] || 'PRODUTO');
+    const stock = document.createElement('span');
+    stock.className = 'stock-dot';
+    stock.textContent = 'DISPONÍVEL';
+    meta.append(pill, stock);
+    const heading = document.createElement('h3');
+    heading.textContent = product.displayName || name;
+    const description = document.createElement('p');
+    const detail = productDetails[name];
+    description.textContent = detail && detail[1] && detail[1][0] ? detail[1][0] : 'Produto do catálogo NexusCraft.';
+    const bottom = document.createElement('div');
+    bottom.className = 'product-bottom';
+    const price = document.createElement('strong');
+    price.className = 'price';
+    price.textContent = money(product.price);
+    const buy = document.createElement('button');
+    buy.type = 'button';
+    buy.dataset.product = name;
+    buy.append(document.createTextNode('Comprar agora '));
+    const arrow = document.createElement('span');
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '→';
+    buy.append(arrow);
+    bottom.append(price, buy);
+    card.append(art, meta, heading, description, bottom);
+    grid.append(card);
+  });
+})();
+
 document.querySelectorAll('[data-product]').forEach(button => {
   button.addEventListener('click', () => openProductDetails(button.dataset.product));
 });
