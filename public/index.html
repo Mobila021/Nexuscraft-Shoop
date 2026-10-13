@@ -56,25 +56,22 @@
           <span class="category-copy"><strong>VIPs</strong><small>Desbloqueie benefícios</small></span><span class="category-arrow">↗</span>
         </button>
         <button type="button" class="category-card" data-category="chaves">
-          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/tripwire_hook.png" alt="" loading="lazy"></span>
+          <span class="category-art"><span class="category-symbol" aria-hidden="true">🔑</span></span>
           <span class="category-copy"><strong>Chaves</strong><small>Abra novas recompensas</small></span><span class="category-arrow">↗</span>
         </button>
         <button type="button" class="category-card" data-category="crates">
-          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/shulker_box.png" alt="" loading="lazy"></span>
+          <span class="category-art"><span class="category-symbol" aria-hidden="true">📦</span></span>
           <span class="category-copy"><strong>Crates</strong><small>Surpresas para você</small></span><span class="category-arrow">↗</span>
         </button>
       </div>
     </section>
 
-    <section class="shop" id="loja">
+    <section class="shop hidden" id="loja">
       <div class="section-head">
-        <div><p class="eyebrow">CATÁLOGO COMPLETO</p><h2 id="categoryTitle">Todos os produtos</h2><p class="muted" id="categoryDescription">Escolha seu próximo item e continue sua aventura.</p></div>
+        <div><p class="eyebrow">PRODUTOS DA CATEGORIA</p><h2 id="categoryTitle">Todos os produtos</h2><p class="muted" id="categoryDescription">Escolha seu próximo item e continue sua aventura.</p></div>
         <span class="secure"><span>✓</span> CHECKOUT SEGURO</span>
       </div>
-      <div class="catalog-toolbar">
-        <span><i></i> Produtos da loja</span><span id="productCount">16 produtos</span>
-      </div>
-      <div class="products" id="products">
+      <span id="productCount" class="hidden">16 produtos</span><div class="products" id="products">
         <article class="product" data-category="moedas">
           <div class="product-art" aria-label="Imagem de 1.000 Moedas">
             <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_ingot.png" alt="1.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">

@@ -30,6 +30,7 @@ const categoryCopy = {
 };
 
 function filterCategory(category) {
+  $('loja').classList.remove('hidden');
   document.querySelectorAll('.category-card').forEach(button => {
     button.classList.toggle('active', button.dataset.category === category);
   });
