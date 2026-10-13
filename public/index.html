@@ -253,6 +253,14 @@
       <p id="noProducts" class="muted hidden">Não há produtos nesta categoria.</p>
     </section>
 
+    <section class="product-detail panel hidden" id="productDetail" aria-live="polite">
+      <div class="checkout-head"><div><p class="eyebrow">DETALHES DO PRODUTO</p><h2 id="detailTitle">Produto</h2></div><button type="button" class="back" id="detailBack">← Voltar aos produtos</button></div>
+      <div class="detail-grid">
+        <div class="detail-showcase"><div class="detail-icon" id="detailIcon">🎒</div><p class="detail-tag" id="detailCategory">PRODUTO NEXUSCRAFT</p></div>
+        <div class="detail-info"><p id="detailDescription" class="muted"></p><h3>O que vem neste produto?</h3><div id="detailContents" class="detail-contents"></div><div class="detail-buy"><strong class="price" id="detailPrice"></strong><button type="button" class="pay" id="detailBuy">Comprar agora →</button></div><p class="detail-note">Confira os itens e benefícios antes de comprar. O conteúdo exato depende da configuração do servidor.</p></div>
+      </div>
+    </section>
+
     <section class="checkout panel hidden" id="checkout">
       <div class="checkout-head"><div><p class="eyebrow">SEU PEDIDO</p><h2>Finalizar compra</h2></div><button type="button" class="back" id="back">← Voltar à loja</button></div>
       <div class="checkout-grid">

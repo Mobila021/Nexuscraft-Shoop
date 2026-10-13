@@ -29,6 +29,55 @@ const categoryCopy = {
   crates: ['Crates', 'Escolha sua caixa de recompensas.']
 };
 
+const productDetails = {
+  '1.000 Moedas': ['Moedas', ['1.000 moedas para usar na economia do servidor']],
+  '5.000 Moedas': ['Moedas', ['5.000 moedas para usar na economia do servidor']],
+  '10.000 Moedas': ['Moedas', ['10.000 moedas para usar na economia do servidor']],
+  '50.000 Moedas': ['Moedas', ['50.000 moedas para usar na economia do servidor']],
+  'Kit Básico': ['Kit', ['Itens iniciais para ajudar na aventura', 'Conteúdo entregue conforme a configuração do servidor']],
+  'Kit Ferramentas': ['Kit de ferramentas', ['Conjunto de ferramentas para o começo', 'Conteúdo entregue conforme a configuração do servidor']],
+  'Kit Combate': ['Kit de combate', ['Equipamentos de combate para sua aventura', 'Conteúdo entregue conforme a configuração do servidor']],
+  'VIP Básico': ['VIP', ['Benefícios do plano de entrada', 'Vantagens e permissões definidas pelo servidor']],
+  'VIP Plus': ['VIP Plus', ['Benefícios adicionais do plano intermediário', 'Vantagens e permissões definidas pelo servidor']],
+  'VIP Prêmio': ['VIP Premium', ['Benefícios do plano especial', 'Vantagens e permissões definidas pelo servidor']],
+  'Chave Comum': ['Chave', ['1 chave comum para abrir recompensas comuns']],
+  'Chave Rara': ['Chave rara', ['1 chave rara para recompensas de raridade superior']],
+  'Chave Épica': ['Chave épica', ['1 chave épica para recompensas épicas']],
+  'Crate Comum': ['Crate', ['1 crate comum com recompensas comuns']],
+  'Crate Rara': ['Crate rara', ['1 crate rara com recompensas raras']],
+  'Crate Lendária': ['Crate lendária', ['1 crate lendária com recompensas especiais']]
+};
+
+function openProductDetails(key) {
+  if (!products[key]) return;
+  selectedProduct = { name: key, ...products[key] };
+  const detail = productDetails[key] || ['Produto', ['Conteúdo conforme a descrição do servidor']];
+  $('detailTitle').textContent = selectedProduct.displayName || key;
+  $('detailIcon').textContent = selectedProduct.icon;
+  $('detailCategory').textContent = detail[0].toUpperCase();
+  $('detailDescription').textContent = `${selectedProduct.displayName || key} — confira abaixo o conteúdo incluído.`;
+  $('detailPrice').textContent = money(selectedProduct.price);
+  $('detailContents').replaceChildren();
+  detail[1].forEach(item => { const row = document.createElement('div'); row.className = 'detail-content-item'; const mark = document.createElement('span'); mark.className = 'detail-check'; mark.textContent = '✓'; const text = document.createElement('span'); text.textContent = item; row.append(mark, text); $('detailContents').append(row); });
+  $('loja').classList.add('hidden');
+  $('productDetail').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function backToProducts() { $('productDetail').classList.add('hidden'); $('loja').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+$('detailBack').addEventListener('click', backToProducts);
+$('detailBuy').addEventListener('click', () => {
+  if (!selectedProduct) return;
+  $('chosenName').textContent = selectedProduct.displayName || selectedProduct.name;
+  $('chosenPrice').textContent = money(selectedProduct.price);
+  $('chosenIcon').textContent = selectedProduct.icon;
+  $('total').textContent = money(selectedProduct.price);
+  $('message').textContent = '';
+  $('nickname').value = '';
+  $('productDetail').classList.add('hidden');
+  $('checkout').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 function filterCategory(category) {
   $('welcomeView')?.classList.add('hidden');
   document.querySelector('.welcome')?.classList.add('hidden');
@@ -68,28 +117,13 @@ document.querySelectorAll('.category-card, [data-category="todos"].text-link').f
 });
 
 document.querySelectorAll('[data-product]').forEach(button => {
-  button.addEventListener('click', () => {
-    const key = button.dataset.product;
-    if (!products[key]) {
-      $('message').textContent = 'Este produto ainda não está configurado.';
-      return;
-    }
-    selectedProduct = { name: key, ...products[key] };
-    $('chosenName').textContent = selectedProduct.displayName || selectedProduct.name;
-    $('chosenPrice').textContent = money(selectedProduct.price);
-    $('chosenIcon').textContent = selectedProduct.icon;
-    $('total').textContent = money(selectedProduct.price);
-    $('message').textContent = '';
-    $('nickname').value = '';
-    $('loja').classList.add('hidden');
-    $('checkout').classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  button.addEventListener('click', () => openProductDetails(button.dataset.product));
 });
 
 function backToShop() {
   $('checkout').classList.add('hidden');
-  $('loja').classList.remove('hidden');
+  if (selectedProduct) $('productDetail').classList.remove('hidden');
+  else $('loja').classList.remove('hidden');
   $('message').textContent = '';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
