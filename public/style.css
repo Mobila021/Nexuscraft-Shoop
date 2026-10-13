@@ -44,3 +44,176 @@
  .steps{grid-template-columns:1fr;gap:0}
 }
 @media(max-width:380px){.sidebar .category{grid-template-columns:66px minmax(0,1fr);column-gap:12px;padding:12px}.sidebar .category span{width:66px;height:66px;font-size:1.6rem}.sidebar .category::after{font-size:.78rem}}
+
+
+/* Ajustes para aproximar o layout do vídeo sem trocar as cores azul/ciano */
+:root{
+  --bg:#050a15;
+  --panel:#0e192b;
+  --line:#253a59;
+  --blue:#28a4ff;
+  --cyan:#6ce8ff;
+  --text:#edf6ff;
+  --muted:#9db0c9;
+}
+
+/* Cabeçalho mais compacto, como uma loja mobile */
+.topbar{
+  min-height:60px;
+  padding:9px 16px;
+  background:rgba(7,14,28,.97);
+  backdrop-filter:blur(12px);
+}
+.brand-mark{width:36px;height:36px;border-radius:10px}
+
+/* Introdução mais curta para mostrar as categorias logo no início */
+.welcome{
+  padding-top:25px;
+  padding-bottom:16px;
+  min-height:0;
+}
+.welcome h1{font-size:clamp(1.9rem,5vw,3.2rem);margin:6px 0 10px}
+.welcome-art{width:130px;height:112px;border-radius:20px}
+.welcome-art b{font-size:2.6rem}
+
+/* Categorias em cartões grandes e fáceis de tocar */
+.store-layout{
+  grid-template-columns:1fr;
+  gap:18px;
+  padding:8px 18px 34px;
+}
+.sidebar{
+  position:static;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+.sidebar-label{
+  align-self:flex-start;
+  margin:0 0 2px;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#0a1322;
+  color:var(--cyan);
+  letter-spacing:.04em;
+}
+.sidebar .category{
+  width:100%;
+  min-height:96px;
+  display:grid;
+  grid-template-columns:68px minmax(0,1fr);
+  grid-template-rows:1fr auto;
+  column-gap:14px;
+  align-items:center;
+  text-align:left;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(110deg,#0d192b,#080e1a 72%);
+  color:var(--text);
+  font-size:1rem;
+  font-weight:850;
+  box-shadow:0 8px 22px #0002;
+}
+.sidebar .category span{
+  grid-column:1;
+  grid-row:1/3;
+  width:68px;
+  height:68px;
+  display:grid;
+  place-items:center;
+  border:1px solid #28517a;
+  border-radius:14px;
+  background:radial-gradient(circle at 50% 40%,#164a78,#0b1b2f 75%);
+  font-size:1.7rem;
+}
+.sidebar .category::after{
+  content:"Ver produtos  →";
+  grid-column:2;
+  grid-row:2;
+  justify-self:start;
+  margin-top:7px;
+  padding:6px 12px;
+  border-radius:9px;
+  background:linear-gradient(90deg,#1687e8,#39c6f5);
+  color:#04101d;
+  font-size:.78rem;
+  font-weight:900;
+}
+.sidebar .category:hover,
+.sidebar .category.active{
+  border-color:#3574a5;
+  background:linear-gradient(110deg,#112640,#090f1b 72%);
+  box-shadow:inset 3px 0 0 var(--blue),0 10px 24px #0003;
+}
+.sidebar-help{display:none}
+
+/* Catálogo compacto, com todos os produtos em grelha */
+.shop{min-width:0;max-width:1240px;margin:0 auto;padding:4px 0 12px}
+.section-head{align-items:center;margin-bottom:14px}
+.products{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.product{
+  padding:13px;
+  border-radius:15px;
+  background:linear-gradient(145deg,#111e33,#080f1c);
+  border-color:var(--line);
+  box-shadow:0 8px 22px #0002;
+}
+.product-icon{
+  width:44px;height:44px;border-radius:12px;font-size:1.45rem;
+}
+.pill{margin-top:9px;font-size:.59rem}
+.product h3{font-size:1rem;line-height:1.25;margin:8px 0 5px}
+.product p{font-size:.78rem;line-height:1.35;min-height:32px;margin-bottom:8px}
+.price{font-size:1.25rem;margin:8px 0 10px}
+.product button{padding:9px 8px;border-radius:9px;font-size:.8rem}
+.product button,.pay{background:linear-gradient(90deg,#1687e8,#39c6f5)}
+.secure{font-size:.63rem;padding:6px 8px}
+.steps{margin-bottom:32px}
+
+/* Mobile: categorias grandes como no vídeo e catálogo de produtos em cartões pequenos */
+@media(max-width:760px){
+  .topbar{min-height:56px;padding:8px 12px}
+  .brand-mark{width:32px;height:32px}
+  .server-status{font-size:.58rem;padding:5px 7px}
+  .discord{font-size:.72rem;padding:6px 8px}
+  .welcome{padding:22px 14px 12px}
+  .welcome h1{font-size:clamp(1.8rem,8vw,2.5rem)}
+  .welcome-art{display:none}
+  .store-layout{padding:6px 10px 26px;gap:18px}
+  .sidebar{display:flex;gap:9px}
+  .sidebar .category{
+    min-height:86px;
+    grid-template-columns:60px minmax(0,1fr);
+    column-gap:12px;
+    padding:10px 11px;
+    border-radius:16px;
+    font-size:.91rem;
+  }
+  .sidebar .category span{width:60px;height:60px;font-size:1.5rem}
+  .sidebar .category::after{font-size:.72rem;padding:5px 10px;margin-top:5px}
+  .shop{padding-top:0}
+  .section-head{align-items:flex-start;flex-direction:column;gap:6px}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .product{padding:10px;border-radius:12px}
+  .product-icon{width:38px;height:38px;font-size:1.25rem;border-radius:10px}
+  .product h3{font-size:.88rem}
+  .product p{font-size:.72rem;min-height:0;margin-bottom:7px}
+  .pill{font-size:.53rem;padding:2px 6px}
+  .price{font-size:1.08rem;margin:7px 0 8px}
+  .product button{font-size:.72rem;padding:8px 5px}
+  .secure{display:inline-block}
+  .checkout-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:0}
+}
+@media(max-width:360px){
+  .sidebar .category{grid-template-columns:52px minmax(0,1fr);column-gap:9px;padding:9px}
+  .sidebar .category span{width:52px;height:52px;font-size:1.3rem}
+  .product{padding:8px}
+  .product h3{font-size:.82rem}
+  .price{font-size:1rem}
+}
