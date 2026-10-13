@@ -106,7 +106,7 @@
             padding: 0 20px;
         }
 
-        /* Categorias Populares */
+        /* Títulos */
         .section-title {
             font-size: 1.3rem;
             font-weight: 700;
@@ -114,52 +114,6 @@
             color: var(--text-main);
             border-left: 4px solid var(--blue-neon);
             padding-left: 10px;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .category-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .category-card:hover {
-            border-color: var(--blue-glow);
-            background: var(--bg-card-hover);
-            transform: translateY(-3px);
-        }
-
-        .category-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .category-info p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .btn-category {
-            background: rgba(0, 136, 255, 0.15);
-            color: var(--blue-glow);
-            border: 1px solid var(--blue-neon);
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
         }
 
         /* Grid de Produtos */
@@ -206,9 +160,10 @@
             padding: 10px 0;
             background: linear-gradient(135deg, var(--blue-neon), #0055ff);
             color: white;
-            text-decoration: none;
+            border: none;
             font-weight: 700;
             border-radius: 8px;
+            cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
             transition: filter 0.2s;
         }
@@ -217,7 +172,67 @@
             filter: brightness(1.1);
         }
 
-        /* Vantagens */
+        /* Tela de Checkout (Oculta por padrão) */
+        #checkout-view {
+            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .checkout-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+
+        .btn-back {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-body);
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .order-summary {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Vantagens e FAQ */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -244,39 +259,6 @@
             color: var(--text-muted);
         }
 
-        /* FAQ */
-        .faq-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        .faq-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 12px;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-            color: var(--text-main);
-        }
-
-        .faq-answer {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Rodapé */
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -303,55 +285,54 @@
 
     <div class="main-container">
 
-        <!-- Categorias em Destaque -->
-        <h2 class="section-title">Categorias Populares</h2>
-        <div class="categories-grid">
-            <div class="category-card">
-                <div class="category-info">
-                    <h3>👑 VIPs</h3>
-                    <p>Vantagens exclusivas no servidor</p>
+        <!-- TELA 1: LISTA DE PRODUTOS (HOME) -->
+        <div id="home-view">
+            <h2 class="section-title">Todos os Produtos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-name">VIP Básico</div>
+                    <div class="product-price">R$ 10,00</div>
+                    <button class="btn-buy" onclick="irParaCheckout('VIP Básico', 'R$ 10,00', 'https://pay.kiwify.com.br/SEU_LINK_VIP_BASICO')">Comprar Agora</button>
                 </div>
-                <div class="btn-category">Ver</div>
-            </div>
-            <div class="category-card">
-                <div class="category-info">
-                    <h3>⚔️ Kits & Combate</h3>
-                    <p>Equipamentos para dominar</p>
+                <div class="product-card">
+                    <div class="product-name">VIP Plus</div>
+                    <div class="product-price">R$ 17,00</div>
+                    <button class="btn-buy" onclick="irParaCheckout('VIP Plus', 'R$ 17,00', 'https://pay.kiwify.com.br/SEU_LINK_VIP_PLUS')">Comprar Agora</button>
                 </div>
-                <div class="btn-category">Ver</div>
-            </div>
-            <div class="category-card">
-                <div class="category-info">
-                    <h3>🪙 Moedas & Chaves</h3>
-                    <p>Economia e Caixas misteriosas</p>
+                <div class="product-card">
+                    <div class="product-name">Kit Combate</div>
+                    <div class="product-price">R$ 12,00</div>
+                    <button class="btn-buy" onclick="irParaCheckout('Kit Combate', 'R$ 12,00', 'https://pay.kiwify.com.br/SEU_LINK_KIT_COMBATE')">Comprar Agora</button>
                 </div>
-                <div class="btn-category">Ver</div>
+                <div class="product-card">
+                    <div class="product-name">10.000 Moedas</div>
+                    <div class="product-price">R$ 12,00</div>
+                    <button class="btn-buy" onclick="irParaCheckout('10.000 Moedas', 'R$ 12,00', 'https://pay.kiwify.com.br/SEU_LINK_10000_MOEDAS')">Comprar Agora</button>
+                </div>
             </div>
         </div>
 
-        <!-- Produtos -->
-        <h2 class="section-title">Todos os Produtos</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-name">VIP Básico</div>
-                <div class="product-price">R$ 10,00</div>
-                <a href="LINK_KIWIFY_VIP_BASICO" target="_blank" class="btn-buy">Comprar Agora</a>
+        <!-- TELA 2: FINALIZAR COMPRA (NICK + PAGAMENTO) -->
+        <div id="checkout-view">
+            <div class="checkout-header">
+                <h3>Finalizar Compra</h3>
+                <button class="btn-back" onclick="voltarHome()">← Voltar à loja</button>
             </div>
-            <div class="product-card">
-                <div class="product-name">VIP Plus</div>
-                <div class="product-price">R$ 17,00</div>
-                <a href="LINK_KIWIFY_VIP_PLUS" target="_blank" class="btn-buy">Comprar Agora</a>
+
+            <div class="order-summary">
+                <div>
+                    <strong id="summary-item-name" style="font-size: 1.1rem; display:block; margin-bottom:4px;">Nome do Item</strong>
+                    <span style="color: var(--text-muted); font-size: 0.85rem;">Produto selecionado</span>
+                </div>
+                <div id="summary-item-price" style="font-size: 1.3rem; font-weight: 800; color: var(--blue-glow);">R$ 0,00</div>
             </div>
-            <div class="product-card">
-                <div class="product-name">Kit Combate</div>
-                <div class="product-price">R$ 12,00</div>
-                <a href="LINK_KIWIFY_KIT_COMBATE" target="_blank" class="btn-buy">Comprar Agora</a>
+
+            <div class="form-group">
+                <label>Nick no Minecraft</label>
+                <input type="text" id="minecraft-nick" placeholder="Ex: SeuNick">
             </div>
-            <div class="product-card">
-                <div class="product-name">10.000 Moedas</div>
-                <div class="product-price">R$ 12,00</div>
-                <a href="LINK_KIWIFY_10000_MOEDAS" target="_blank" class="btn-buy">Comprar Agora</a>
-            </div>
+
+            <button class="btn-buy" onclick="finalizarPagamento()" style="padding: 14px; font-size: 1rem;">Continuar para pagamento →</button>
         </div>
 
         <!-- Vantagens -->
@@ -370,24 +351,40 @@
             </div>
         </div>
 
-        <!-- FAQ -->
-        <div class="faq-section">
-            <h3>Perguntas Frequentes</h3>
-            <div class="faq-item">
-                <div class="faq-question">Como faço para receber o item no jogo?</div>
-                <div class="faq-answer">Basta estares online no servidor após a confirmação do pagamento. O comando será executado automaticamente.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Quais são as formas de pagamento?</div>
-                <div class="faq-answer">Aceitamos Pix (com aprovação imediata) e Cartão de Crédito através da Kiwify.</div>
-            </div>
-        </div>
-
     </div>
 
     <footer>
         <p>NexusCraft Shoop © 2026. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        let linkKiwifyAtual = "";
+
+        function irParaCheckout(nome, preco, link) {
+            linkKiwifyAtual = link;
+            document.getElementById('summary-item-name').innerText = nome;
+            document.getElementById('summary-item-price').innerText = preco;
+            
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('checkout-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function voltarHome() {
+            document.getElementById('checkout-view').style.display = 'none';
+            document.getElementById('home-view').style.display = 'block';
+        }
+
+        function finalizarPagamento() {
+            const nick = document.getElementById('minecraft-nick').value;
+            if (!nick) {
+                alert('Por favor, digite o seu nick no Minecraft!');
+                return;
+            }
+            // Redireciona para o link do checkout da Kiwify
+            window.open(linkKiwifyAtual, '_blank');
+        }
+    </script>
 
 </body>
 </html>
