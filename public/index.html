@@ -36,7 +36,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 25px;
-            background: rgba(15, 21, 34, 0.8);
+            background: rgba(15, 21, 34, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-card);
             position: sticky;
@@ -47,7 +47,7 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
             color: var(--text-main);
             font-weight: 800;
@@ -81,7 +81,7 @@
         }
 
         .hero h1 {
-            font-size: 2.4rem;
+            font-size: 2.3rem;
             font-weight: 800;
             margin-bottom: 10px;
             color: var(--text-main);
@@ -94,7 +94,7 @@
 
         .hero p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
             max-width: 550px;
             margin: 0 auto;
             line-height: 1.5;
@@ -106,14 +106,62 @@
             padding: 0 20px;
         }
 
-        /* Títulos */
+        /* Títulos de Seção */
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin: 30px 0 15px;
             color: var(--text-main);
             border-left: 4px solid var(--blue-neon);
             padding-left: 10px;
+        }
+
+        /* Grid de Categorias (Estilo do Vídeo) */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            border-color: var(--blue-glow);
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+        }
+
+        .category-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .category-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn-category {
+            background: rgba(0, 136, 255, 0.15);
+            color: var(--blue-glow);
+            border: 1px solid var(--blue-neon);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
 
         /* Grid de Produtos */
@@ -172,37 +220,40 @@
             filter: brightness(1.1);
         }
 
-        /* Tela de Checkout (Oculta por padrão) */
-        #checkout-view {
+        /* Botão Voltar genérico */
+        .btn-back-view {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Telas (Home, Categoria, Checkout) */
+        .view-section {
             display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        /* Tela de Checkout */
+        .checkout-box {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 12px;
             padding: 25px;
-            margin-top: 20px;
-        }
-
-        .checkout-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 15px;
-        }
-
-        .btn-back {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
         .form-group label {
@@ -223,10 +274,9 @@
         }
 
         .order-summary {
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.3);
             padding: 15px;
             border-radius: 8px;
-            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -259,6 +309,36 @@
             color: var(--text-muted);
         }
 
+        .faq-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .faq-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 12px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .faq-answer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -273,7 +353,7 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="nav-brand">NEXUSCRAFT <span>SHOOP</span></a>
+        <a href="#" class="nav-brand" onclick="mudarTela('home')">NEXUSCRAFT <span>SHOOP</span></a>
         <a href="https://discord.gg/tua-url-discord" target="_blank" class="nav-discord">Discord</a>
     </nav>
 
@@ -285,69 +365,99 @@
 
     <div class="main-container">
 
-        <!-- TELA 1: LISTA DE PRODUTOS (HOME) -->
-        <div id="home-view">
-            <h2 class="section-title">Todos os Produtos</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-name">VIP Básico</div>
-                    <div class="product-price">R$ 10,00</div>
-                    <button class="btn-buy" onclick="irParaCheckout('VIP Básico', 'R$ 10,00', 'https://pay.kiwify.com.br/SEU_LINK_VIP_BASICO')">Comprar Agora</button>
+        <!-- ================= TELA 1: HOME (CATEGORIAS) ================= -->
+        <div id="view-home" class="view-section active">
+            <h2 class="section-title">Categorias Populares</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="abrirCategoria('vips')">
+                    <div class="category-info">
+                        <h3>👑 VIPs</h3>
+                        <p>Vantagens exclusivas no servidor</p>
+                    </div>
+                    <div class="btn-category">Ver produtos →</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-name">VIP Plus</div>
-                    <div class="product-price">R$ 17,00</div>
-                    <button class="btn-buy" onclick="irParaCheckout('VIP Plus', 'R$ 17,00', 'https://pay.kiwify.com.br/SEU_LINK_VIP_PLUS')">Comprar Agora</button>
+                <div class="category-card" onclick="abrirCategoria('kits')">
+                    <div class="category-info">
+                        <h3>⚔️ Kits & Combate</h3>
+                        <p>Equipamentos para dominar</p>
+                    </div>
+                    <div class="btn-category">Ver produtos →</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-name">Kit Combate</div>
-                    <div class="product-price">R$ 12,00</div>
-                    <button class="btn-buy" onclick="irParaCheckout('Kit Combate', 'R$ 12,00', 'https://pay.kiwify.com.br/SEU_LINK_KIT_COMBATE')">Comprar Agora</button>
+                <div class="category-card" onclick="abrirCategoria('moedas')">
+                    <div class="category-info">
+                        <h3>🪙 Moedas</h3>
+                        <p>Saldo para a economia do servidor</p>
+                    </div>
+                    <div class="btn-category">Ver produtos →</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-name">10.000 Moedas</div>
-                    <div class="product-price">R$ 12,00</div>
-                    <button class="btn-buy" onclick="irParaCheckout('10.000 Moedas', 'R$ 12,00', 'https://pay.kiwify.com.br/SEU_LINK_10000_MOEDAS')">Comprar Agora</button>
+                <div class="category-card" onclick="abrirCategoria('chaves')">
+                    <div class="category-info">
+                        <h3>🔑 Chaves & Crates</h3>
+                        <p>Caixas misteriosas e recompensas</p>
+                    </div>
+                    <div class="btn-category">Ver produtos →</div>
+                </div>
+            </div>
+
+            <!-- Vantagens -->
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h4>⚡ Envio Imediato</h4>
+                    <p>Recebe o pacote automaticamente após a confirmação do pagamento.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>🔒 Compra Segura</h4>
+                    <p>Pagamentos processados com total segurança e criptografia.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>🎧 Suporte Eficiente</h4>
+                    <p>Dúvidas? Entre em contacto connosco através do nosso Discord.</p>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="faq-section">
+                <h3>Perguntas Frequentes</h3>
+                <div class="faq-item">
+                    <div class="faq-question">Como faço para receber o item no jogo?</div>
+                    <div class="faq-answer">Basta estares online no servidor após a confirmação do pagamento. O comando é executado automaticamente.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quais são as formas de pagamento?</div>
+                    <div class="faq-answer">Aceitamos Pix (com aprovação imediata) e Cartão de Crédito através da Kiwify.</div>
                 </div>
             </div>
         </div>
 
-        <!-- TELA 2: FINALIZAR COMPRA (NICK + PAGAMENTO) -->
-        <div id="checkout-view">
-            <div class="checkout-header">
-                <h3>Finalizar Compra</h3>
-                <button class="btn-back" onclick="voltarHome()">← Voltar à loja</button>
+        <!-- ================= TELA 2: PRODUTOS DA CATEGORIA ================= -->
+        <div id="view-categoria" class="view-section">
+            <button class="btn-back-view" onclick="mudarTela('home')">← Voltar às categorias</button>
+            <h2 id="titulo-categoria" class="section-title">Produtos</h2>
+            <div id="grid-produtos-categoria" class="products-grid">
+                <!-- Os produtos aparecem aqui automaticamente via JavaScript -->
             </div>
-
-            <div class="order-summary">
-                <div>
-                    <strong id="summary-item-name" style="font-size: 1.1rem; display:block; margin-bottom:4px;">Nome do Item</strong>
-                    <span style="color: var(--text-muted); font-size: 0.85rem;">Produto selecionado</span>
-                </div>
-                <div id="summary-item-price" style="font-size: 1.3rem; font-weight: 800; color: var(--blue-glow);">R$ 0,00</div>
-            </div>
-
-            <div class="form-group">
-                <label>Nick no Minecraft</label>
-                <input type="text" id="minecraft-nick" placeholder="Ex: SeuNick">
-            </div>
-
-            <button class="btn-buy" onclick="finalizarPagamento()" style="padding: 14px; font-size: 1rem;">Continuar para pagamento →</button>
         </div>
 
-        <!-- Vantagens -->
-        <div class="features-grid">
-            <div class="feature-box">
-                <h4>⚡ Envio Imediato</h4>
-                <p>Recebe o pacote automaticamente após a confirmação do pagamento.</p>
-            </div>
-            <div class="feature-box">
-                <h4>🔒 Compra Segura</h4>
-                <p>Pagamentos processados com total segurança e criptografia.</p>
-            </div>
-            <div class="feature-box">
-                <h4>🎧 Suporte Eficiente</h4>
-                <p>Dúvidas? Entre em contacto connosco através do nosso Discord.</p>
+        <!-- ================= TELA 3: CHECKOUT (NICK + PAGAMENTO) ================= -->
+        <div id="view-checkout" class="view-section">
+            <button class="btn-back-view" onclick="voltarParaCategoria()">← Voltar</button>
+            <div class="checkout-box">
+                <h3 style="margin-bottom: 15px; font-size: 1.2rem;">Finalizar Compra</h3>
+
+                <div class="order-summary">
+                    <div>
+                        <strong id="summary-item-name" style="font-size: 1.1rem; display:block; margin-bottom:4px;">Nome do Item</strong>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Produto selecionado</span>
+                    </div>
+                    <div id="summary-item-price" style="font-size: 1.3rem; font-weight: 800; color: var(--blue-glow);">R$ 0,00</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Nick no Minecraft</label>
+                    <input type="text" id="minecraft-nick" placeholder="Ex: SeuNick">
+                </div>
+
+                <button class="btn-buy" onclick="finalizarPagamento()" style="padding: 14px; font-size: 1rem;">Continuar para pagamento →</button>
             </div>
         </div>
 
@@ -358,30 +468,87 @@
     </footer>
 
     <script>
-        let linkKiwifyAtual = "";
+        // Banco de produtos organizado por categoria
+        const produtosData = {
+            vips: [
+                { nome: "VIP Básico", preco: "R$ 10,00", link: "LINK_KIWIFY_VIP_BASICO" },
+                { nome: "VIP Plus", preco: "R$ 17,00", link: "LINK_KIWIFY_VIP_PLUS" },
+                { nome: "VIP Premium", preco: "R$ 25,00", link: "LINK_KIWIFY_VIP_PREMIUM" }
+            ],
+            kits: [
+                { nome: "Kit Básico", preco: "R$ 5,00", link: "LINK_KIWIFY_KIT_BASICO" },
+                { nome: "Kit Ferramentas", preco: "R$ 7,00", link: "LINK_KIWIFY_KIT_FERRAMENTAS" },
+                { nome: "Kit Combate", preco: "R$ 12,00", link: "LINK_KIWIFY_KIT_COMBATE" }
+            ],
+            moedas: [
+                { nome: "1.000 Moedas", preco: "R$ 5,00", link: "LINK_KIWIFY_1000_MOEDAS" },
+                { nome: "5.000 Moedas", preco: "R$ 8,00", link: "LINK_KIWIFY_5000_MOEDAS" },
+                { nome: "10.000 Moedas", preco: "R$ 12,00", link: "LINK_KIWIFY_10000_MOEDAS" },
+                { nome: "50.000 Moedas", preco: "R$ 20,00", link: "LINK_KIWIFY_50000_MOEDAS" }
+            ],
+            chaves: [
+                { nome: "Chave Comum", preco: "R$ 5,00", link: "LINK_KIWIFY_CHAVE_COMUM" },
+                { nome: "Chave Rara", preco: "R$ 8,00", link: "LINK_KIWIFY_CHAVE_RARA" },
+                { nome: "Crate Rara", preco: "R$ 10,00", link: "LINK_KIWIFY_CRATE_RARA" },
+                { nome: "Chave Épica", preco: "R$ 15,00", link: "LINK_KIWIFY_CHAVE_EPICA" },
+                { nome: "Crate Lendária", preco: "R$ 20,00", link: "LINK_KIWIFY_CRATE_LENDARIA" }
+            ]
+        };
+
+        let categoriaAtual = 'vips';
+        let linkKiwifyAtual = '';
+
+        function mudarTela(telaId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById('view-' + telaId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function abrirCategoria(catKey) {
+            categoriaAtual = catKey;
+            const titulos = {
+                vips: "👑 VIPs Disponíveis",
+                kits: "⚔️ Kits & Combate",
+                moedas: "🪙 Pacotes de Moedas",
+                chaves: "🔑 Chaves & Crates"
+            };
+
+            document.getElementById('titulo-categoria').innerText = titulos[catKey];
+            
+            const grid = document.getElementById('grid-produtos-categoria');
+            grid.innerHTML = '';
+
+            produtosData[catKey].forEach(prod => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-name">${prod.nome}</div>
+                        <div class="product-price">${prod.preco}</div>
+                        <button class="btn-buy" onclick="irParaCheckout('${prod.nome}', '${prod.preco}', '${prod.link}')">Comprar Agora</button>
+                    </div>
+                `;
+            });
+
+            mudarTela('categoria');
+        }
+
+        function voltarParaCategoria() {
+            abrirCategoria(categoriaAtual);
+        }
 
         function irParaCheckout(nome, preco, link) {
             linkKiwifyAtual = link;
             document.getElementById('summary-item-name').innerText = nome;
             document.getElementById('summary-item-price').innerText = preco;
-            
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('checkout-view').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function voltarHome() {
-            document.getElementById('checkout-view').style.display = 'none';
-            document.getElementById('home-view').style.display = 'block';
+            document.getElementById('minecraft-nick').value = '';
+            mudarTela('checkout');
         }
 
         function finalizarPagamento() {
-            const nick = document.getElementById('minecraft-nick').value;
+            const nick = document.getElementById('minecraft-nick').value.trim();
             if (!nick) {
                 alert('Por favor, digite o seu nick no Minecraft!');
                 return;
             }
-            // Redireciona para o link do checkout da Kiwify
             window.open(linkKiwifyAtual, '_blank');
         }
     </script>
