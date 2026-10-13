@@ -32,11 +32,11 @@ h1 span{color:var(--blue)}.welcome-copy>p:last-child{max-width:550px;margin:0;co
 .section-title-row,.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:17px}
 h2{margin:0;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.025em}
 .text-link{border:0;background:transparent;color:var(--cyan);font-size:.85rem;font-weight:800}
-.category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.category-card{position:relative;display:flex;align-items:center;gap:14px;min-width:0;padding:13px;text-align:left;border:1px solid var(--line);border-radius:17px;background:linear-gradient(120deg,#101f34,#080f1c);color:var(--text);box-shadow:0 8px 22px #0002;transition:border-color .18s,transform .18s,background .18s}
-.category-card:hover,.category-card.active{border-color:#3484bd;background:linear-gradient(120deg,#132c47,#0a1423);transform:translateY(-1px)}
-.category-card.active{box-shadow:inset 3px 0 0 var(--blue),0 8px 24px #0003}
-.category-art{display:grid;place-items:center;flex:0 0 66px;width:66px;height:66px;overflow:hidden;border:1px solid #28517a;border-radius:14px;background:radial-gradient(circle at 50% 35%,#1c527e,#0a1a2d 72%);color:var(--cyan)}
+.category-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.category-card{position:relative;display:flex;align-items:center;gap:14px;min-width:0;padding:13px;text-align:left;border:1px solid color-mix(in srgb,var(--category-color,#3484bd) 65%,transparent);border-radius:17px;background:linear-gradient(120deg,var(--category-tint,#101f34),#080f1c);color:var(--text);box-shadow:0 8px 22px #0002;transition:border-color .18s,transform .18s,background .18s}
+.category-card:hover,.category-card.active{border-color:var(--category-color,#3484bd);background:linear-gradient(120deg,var(--category-tint,#132c47),#0a1423);transform:translateY(-1px)}
+.category-card.active{box-shadow:inset 4px 0 0 var(--category-color,var(--blue)),0 8px 24px #0003}
+.category-art{display:grid;place-items:center;flex:0 0 66px;width:66px;height:66px;overflow:hidden;border:1px solid color-mix(in srgb,var(--category-color,#28517a) 55%,transparent);border-radius:14px;background:radial-gradient(circle at 50% 35%,var(--category-tint,#1c527e),#0a1a2d 72%);color:var(--category-color,var(--cyan))}
 .category-art img{width:50px;height:50px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 4px 8px #0008)}
 .category-symbol{font-size:2rem;font-weight:900}
 .category-copy{display:flex;flex:1;flex-direction:column;gap:3px;min-width:0}

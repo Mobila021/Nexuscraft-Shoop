@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050a15">
-  <meta name="description" content="Loja oficial NexusCraft — moedas, kits, VIPs, chaves e crates para Minecraft.">
+  <meta name="description" content="Loja oficial NexusCraft — moedas, kits, VIPs, XP, geradores de criaturas, chaves e crates para Minecraft.">
   <title>NexusCraft Shoop — Loja Oficial</title>
   <link rel="stylesheet" href="/style.css">
 </head>
@@ -25,7 +25,7 @@
       <div class="welcome-copy">
         <p class="eyebrow"><span class="eyebrow-line"></span> LOJA OFICIAL NEXUSCRAFT</p>
         <h1>Fortaleça sua<br><span>próxima aventura.</span></h1>
-        <p>Encontre moedas, kits, VIPs e recompensas para evoluir no servidor.</p>
+        <p>Encontre moedas, kits, VIPs, XP, geradores de criaturas e recompensas para evoluir no servidor.</p>
       </div>
       <div class="welcome-art" aria-hidden="true">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
@@ -39,30 +39,15 @@
         <button class="text-link" type="button" data-category="todos">Ver tudo ↗</button>
       </div>
       <div class="category-grid">
-        <button type="button" class="category-card active" data-category="todos">
-          <span class="category-art"><span class="category-symbol">⌂</span></span>
-          <span class="category-copy"><strong>Todos os produtos</strong><small>Veja o catálogo completo</small></span><span class="category-arrow">↗</span>
-        </button>
-        <button type="button" class="category-card" data-category="moedas">
-          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_ingot.png" alt="" loading="lazy"></span>
-          <span class="category-copy"><strong>Moedas</strong><small>Saldo para sua jornada</small></span><span class="category-arrow">↗</span>
-        </button>
-        <button type="button" class="category-card" data-category="kits">
-          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_sword.png" alt="" loading="lazy"></span>
-          <span class="category-copy"><strong>Kits</strong><small>Prepare-se para lutar</small></span><span class="category-arrow">↗</span>
-        </button>
-        <button type="button" class="category-card" data-category="vips">
-          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/netherite_chestplate.png" alt="" loading="lazy"></span>
-          <span class="category-copy"><strong>VIPs</strong><small>Desbloqueie benefícios</small></span><span class="category-arrow">↗</span>
-        </button>
-        <button type="button" class="category-card" data-category="chaves">
-          <span class="category-art"><span class="category-symbol" aria-hidden="true">🔑</span></span>
-          <span class="category-copy"><strong>Chaves</strong><small>Abra novas recompensas</small></span><span class="category-arrow">↗</span>
-        </button>
-        <button type="button" class="category-card" data-category="crates">
-          <span class="category-art"><span class="category-symbol" aria-hidden="true">📦</span></span>
-          <span class="category-copy"><strong>Crates</strong><small>Surpresas para você</small></span><span class="category-arrow">↗</span>
-        </button>
+        <button type="button" class="category-card" data-category="vips" style="--category-color:#ff5252;--category-tint:#351719"><span class="category-art"><span class="category-symbol">👑</span></span><span class="category-copy"><strong>VIPs</strong><small>Benefícios exclusivos</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="kits" style="--category-color:#42a5f5;--category-tint:#152943"><span class="category-art"><span class="category-symbol">🎒</span></span><span class="category-copy"><strong>Kits</strong><small>Itens para sua aventura</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="moedas" style="--category-color:#ffd54f;--category-tint:#352b12"><span class="category-art"><span class="category-symbol">🪙</span></span><span class="category-copy"><strong>Moedas</strong><small>Moedas para sua economia</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="xp" style="--category-color:#66bb6a;--category-tint:#153321"><span class="category-art"><span class="category-symbol">📈</span></span><span class="category-copy"><strong>Níveis de XP</strong><small>Evolua mais rápido</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="chaves" style="--category-color:#4dd0e1;--category-tint:#123438"><span class="category-art"><span class="category-symbol">🗝️</span></span><span class="category-copy"><strong>Chaves</strong><small>Desbloqueie recompensas</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="crates" style="--category-color:#ffb74d;--category-tint:#38250f"><span class="category-art"><span class="category-symbol">📦</span></span><span class="category-copy"><strong>Caixas</strong><small>Surpresas e tesouros</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="enchants" style="--category-color:#ce93d8;--category-tint:#30163a"><span class="category-art"><span class="category-symbol">📚</span></span><span class="category-copy"><strong>Livros de encantamentos</strong><small>Encantamentos por raridade</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="armor" style="--category-color:#b0bec5;--category-tint:#202b32"><span class="category-art"><span class="category-symbol">🛡️</span></span><span class="category-copy"><strong>Melhorias para armaduras</strong><small>Armaduras e Netherite</small></span><span class="category-arrow">↗</span></button>
+        <button type="button" class="category-card" data-category="spawners" style="--category-color:#a1887f;--category-tint:#30231f"><span class="category-art"><span class="category-symbol">🐾</span></span><span class="category-copy"><strong>Geradores de mobs</strong><small>Geradores de criaturas</small></span><span class="category-arrow">↗</span></button>
       </div>
     </section>
 
@@ -248,6 +233,226 @@
           <h3>Crate Lendária</h3>
           <p>Caixa especial de recompensas.</p>
           <div class="product-bottom"><strong class="price">R$ 20,00</strong><button type="button" data-product="Crate Lendária">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="xp">
+          <div class="product-art" aria-label="Imagem de XP — 10 níveis">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/experience_bottle.png" alt="XP — 10 níveis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🟢</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">XP</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>XP — 10 níveis</h3>
+          <p>10 níveis de experiência para o seu personagem.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="XP — 10 níveis">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="xp">
+          <div class="product-art" aria-label="Imagem de XP — 20 níveis">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/experience_bottle.png" alt="XP — 20 níveis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>✨</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">XP</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>XP — 20 níveis</h3>
+          <p>20 níveis de experiência para o seu personagem.</p>
+          <div class="product-bottom"><strong class="price">R$ 8,00</strong><button type="button" data-product="XP — 20 níveis">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="xp">
+          <div class="product-art" aria-label="Imagem de XP — 30 níveis">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/experience_bottle.png" alt="XP — 30 níveis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🌟</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">XP</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>XP — 30 níveis</h3>
+          <p>30 níveis de experiência para o seu personagem.</p>
+          <div class="product-bottom"><strong class="price">R$ 10,00</strong><button type="button" data-product="XP — 30 níveis">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="xp">
+          <div class="product-art" aria-label="Imagem de XP — 50 níveis">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/experience_bottle.png" alt="XP — 50 níveis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💫</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">XP</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>XP — 50 níveis</h3>
+          <p>50 níveis de experiência para o seu personagem.</p>
+          <div class="product-bottom"><strong class="price">R$ 15,00</strong><button type="button" data-product="XP — 50 níveis">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="xp">
+          <div class="product-art" aria-label="Imagem de XP — 100 níveis">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/experience_bottle.png" alt="XP — 100 níveis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🔮</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">XP</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>XP — 100 níveis</h3>
+          <p>100 níveis de experiência para o seu personagem.</p>
+          <div class="product-bottom"><strong class="price">R$ 25,00</strong><button type="button" data-product="XP — 100 níveis">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Galinhas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/chicken_spawn_egg.png" alt="Gerador de Galinhas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🐔</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">COMUM</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Galinhas</h3>
+          <p>Gerador de criaturas de galinha para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Gerador de Galinhas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Porcos">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/pig_spawn_egg.png" alt="Gerador de Porcos" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🐷</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">COMUM</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Porcos</h3>
+          <p>Gerador de criaturas de porco para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Gerador de Porcos">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Vacas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/cow_spawn_egg.png" alt="Gerador de Vacas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🐮</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">COMUM</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Vacas</h3>
+          <p>Gerador de criaturas de vaca para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Gerador de Vacas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Zumbis">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/zombie_spawn_egg.png" alt="Gerador de Zumbis" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🧟</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">BÁSICO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Zumbis</h3>
+          <p>Gerador de criaturas de zumbi para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 7,00</strong><button type="button" data-product="Gerador de Zumbis">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Aranhas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/spider_spawn_egg.png" alt="Gerador de Aranhas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🕷️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">BÁSICO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Aranhas</h3>
+          <p>Gerador de criaturas de aranha para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 7,00</strong><button type="button" data-product="Gerador de Aranhas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Esqueletos">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/skeleton_spawn_egg.png" alt="Gerador de Esqueletos" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💀</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">INTERMEDIÁRIO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Esqueletos</h3>
+          <p>Gerador de criaturas de esqueleto para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="Gerador de Esqueletos">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Creepers">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/creeper_spawn_egg.png" alt="Gerador de Creepers" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💚</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">INTERMEDIÁRIO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Creepers</h3>
+          <p>Gerador de criaturas de creeper para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="Gerador de Creepers">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Slimes">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/slime_spawn_egg.png" alt="Gerador de Slimes" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🟩</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">INTERMEDIÁRIO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Slimes</h3>
+          <p>Gerador de slimes para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="Gerador de Slimes">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Endermans">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/enderman_spawn_egg.png" alt="Gerador de Endermans" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>👾</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">RARO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Endermans</h3>
+          <p>Gerador de endermans para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 16,00</strong><button type="button" data-product="Gerador de Endermans">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Blazes">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/blaze_spawn_egg.png" alt="Gerador de Blazes" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🔥</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">RARO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Blazes</h3>
+          <p>Gerador de blazes para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 16,00</strong><button type="button" data-product="Gerador de Blazes">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Cubos de Magma">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/magma_cube_spawn_egg.png" alt="Gerador de Cubos de Magma" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🟥</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">RARO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Cubos de Magma</h3>
+          <p>Gerador de cubos de magma para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 16,00</strong><button type="button" data-product="Gerador de Cubos de Magma">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Bruxas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/witch_spawn_egg.png" alt="Gerador de Bruxas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🧙</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">RARO</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Bruxas</h3>
+          <p>Gerador de bruxas para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 16,00</strong><button type="button" data-product="Gerador de Bruxas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Guardiões">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/guardian_spawn_egg.png" alt="Gerador de Guardiões" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🐡</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">ESPECIAL</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Guardiões</h3>
+          <p>Gerador de guardiões para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 18,00</strong><button type="button" data-product="Gerador de Guardiões">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Phantoms">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/phantom_spawn_egg.png" alt="Gerador de Phantoms" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🦇</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">ESPECIAL</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Phantoms</h3>
+          <p>Gerador de phantoms para colocar no mundo.</p>
+          <div class="product-bottom"><strong class="price">R$ 18,00</strong><button type="button" data-product="Gerador de Phantoms">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="spawners">
+          <div class="product-art" aria-label="Imagem de Gerador de Golem de Ferro">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_ingot.png" alt="Gerador de Golem de Ferro" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🗿</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">ESPECIAL</span><span class="stock-dot">CATÁLOGO</span></div>
+          <h3>Gerador de Golem de Ferro</h3>
+          <p>Gerador especial de golem de ferro, se suportado pelo plugin instalado.</p>
+          <div class="product-bottom"><strong class="price">R$ 18,00</strong><button type="button" data-product="Gerador de Golem de Ferro">Comprar agora <span aria-hidden="true">→</span></button></div>
         </article>
       </div>
       <p id="noProducts" class="muted hidden">Não há produtos nesta categoria.</p>
