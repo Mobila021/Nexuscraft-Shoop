@@ -1,413 +1,275 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusCraft Shoop - Loja Oficial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-body: #080b10;
-            --bg-card: #0f1522;
-            --bg-card-hover: #151d2f;
-            --border-card: rgba(0, 136, 255, 0.2);
-            --blue-neon: #0088ff;
-            --blue-glow: #00d2ff;
-            --text-main: #ffffff;
-            --text-muted: #8c9ba5;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            padding-bottom: 60px;
-        }
-
-        /* Navbar Superior */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background: rgba(15, 21, 34, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-card);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-
-        .nav-brand span {
-            color: var(--blue-glow);
-        }
-
-        .nav-discord {
-            background: #5865F2;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.2s;
-        }
-
-        .nav-discord:hover {
-            opacity: 0.85;
-        }
-
-        /* Hero Banner */
-        .hero {
-            text-align: center;
-            padding: 50px 20px;
-            background: radial-gradient(circle at top, rgba(0, 136, 255, 0.15) 0%, transparent 70%);
-        }
-
-        .hero h1 {
-            font-size: 2.3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .hero h1 span {
-            color: var(--blue-glow);
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            max-width: 550px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .main-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Títulos de Seção */
-        .section-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 30px 0 15px;
-            color: var(--text-main);
-            border-left: 4px solid var(--blue-neon);
-            padding-left: 10px;
-        }
-
-        /* Grid de Categorias */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .category-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-card:hover {
-            border-color: var(--blue-glow);
-            background: var(--bg-card-hover);
-            transform: translateY(-3px);
-        }
-
-        .category-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--text-main);
-        }
-
-        .category-info p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .btn-category {
-            background: rgba(0, 136, 255, 0.15);
-            color: var(--blue-glow);
-            border: 1px solid var(--blue-neon);
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-
-        /* Grid de Produtos */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s;
-        }
-
-        .product-card:hover {
-            border-color: var(--blue-glow);
-            transform: translateY(-3px);
-        }
-
-        .product-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--blue-glow);
-            margin-bottom: 15px;
-        }
-
-        .btn-buy {
-            display: block;
-            width: 100%;
-            padding: 10px 0;
-            background: linear-gradient(135deg, var(--blue-neon), #0055ff);
-            color: white;
-            border: none;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
-            transition: filter 0.2s;
-        }
-
-        .btn-buy:hover {
-            filter: brightness(1.1);
-        }
-
-        /* Botão Voltar */
-        .btn-back-view {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .view-section {
-            display: none;
-        }
-
-        .view-section.active {
-            display: block;
-        }
-
-        /* Tela de Checkout */
-        .checkout-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 25px;
-        }
-
-        .form-group {
-            margin: 20px 0;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-body);
-            border: 1px solid var(--border-card);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .order-summary {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Vantagens e FAQ */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-            margin: 40px 0;
-        }
-
-        .feature-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .feature-box h4 {
-            font-size: 1rem;
-            margin-bottom: 6px;
-            color: var(--blue-glow);
-        }
-
-        .feature-box p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .faq-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        .faq-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 12px;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-        }
-
-        .faq-answer {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-card);
-            margin-top: 50px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050a15">
+  <meta name="description" content="Loja oficial NexusCraft — moedas, kits, VIPs, chaves e crates para Minecraft.">
+  <title>NexusCraft Shoop — Loja Oficial</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="NexusCraft Shoop - início">
+      <span class="brand-mark">N</span>
+      <span class="brand-name"><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span>
+    </a>
+    <div class="topbar-right">
+      <span class="server-status"><i></i> JAVA + BEDROCK</span>
+      <a class="discord" href="#suporte">Suporte ↗</a>
+    </div>
+  </header>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="#" class="nav-brand" onclick="mudarTela('home')">NEXUSCRAFT <span>SHOOP</span></a>
-        <a href="https://discord.gg/tua-url-discord" target="_blank" class="nav-discord">Discord</a>
-    </nav>
+  <main>
+    <section class="welcome" id="inicio">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> LOJA OFICIAL NEXUSCRAFT</p>
+        <h1>Fortaleça sua<br><span>próxima aventura.</span></h1>
+        <p>Encontre moedas, kits, VIPs e recompensas para evoluir no servidor.</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <span class="hero-cube">N</span><span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">◆</span>
+      </div>
+    </section>
 
-    <!-- Hero -->
-    <header class="hero">
-        <h1>Guerreie, Sangue e <span>Conquiste</span></h1>
-        <p>Adquire os teus itens com entrega automática e segura via Pix ou Cartão na nossa rede Java & Bedrock.</p>
-    </header>
+    <section class="category-section" aria-labelledby="categoriesTitle">
+      <div class="section-title-row">
+        <div><p class="eyebrow">EXPLORE A LOJA</p><h2 id="categoriesTitle">Categorias populares</h2></div>
+        <button class="text-link" type="button" data-category="todos">Ver tudo ↗</button>
+      </div>
+      <div class="category-grid">
+        <button type="button" class="category-card active" data-category="todos">
+          <span class="category-art"><span class="category-symbol">⌂</span></span>
+          <span class="category-copy"><strong>Todos os produtos</strong><small>Veja o catálogo completo</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="moedas">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_ingot.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>Moedas</strong><small>Saldo para sua jornada</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="kits">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_sword.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>Kits</strong><small>Prepare-se para lutar</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="vips">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/netherite_chestplate.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>VIPs</strong><small>Desbloqueie benefícios</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="chaves">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/tripwire_hook.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>Chaves</strong><small>Abra novas recompensas</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="crates">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/shulker_box.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>Crates</strong><small>Surpresas para você</small></span><span class="category-arrow">↗</span>
+        </button>
+      </div>
+    </section>
 
-    <div class="main-container">
+    <section class="shop" id="loja">
+      <div class="section-head">
+        <div><p class="eyebrow">CATÁLOGO COMPLETO</p><h2 id="categoryTitle">Todos os produtos</h2><p class="muted" id="categoryDescription">Escolha seu próximo item e continue sua aventura.</p></div>
+        <span class="secure"><span>✓</span> CHECKOUT SEGURO</span>
+      </div>
+      <div class="catalog-toolbar">
+        <span><i></i> Produtos da loja</span><span id="productCount">16 produtos</span>
+      </div>
+      <div class="products" id="products">
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 1.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_ingot.png" alt="1.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🪙</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">MOEDAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>1.000 Moedas</h3>
+          <p>Pacote inicial para a economia do servidor.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="1.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 5.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_block.png" alt="5.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💰</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">MAIS MOEDAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>5.000 Moedas</h3>
+          <p>Mais saldo para suas compras no servidor.</p>
+          <div class="product-bottom"><strong class="price">R$ 8,00</strong><button type="button" data-product="5.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 10.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond.png" alt="10.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💎</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">MOEDAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>10.000 Moedas</h3>
+          <p>Um pacote maior para juntar saldo.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="10.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 50.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/emerald.png" alt="50.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💎</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">PACOTE ESPECIAL</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>50.000 Moedas</h3>
+          <p>Pacote especial para ampliar seu saldo.</p>
+          <div class="product-bottom"><strong class="price">R$ 20,00</strong><button type="button" data-product="50.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="kits">
+          <div class="product-art" aria-label="Imagem de Kit Básico">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/chest.png" alt="Kit Básico" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🎒</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">KIT</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Kit Básico</h3>
+          <p>Itens iniciais para ajudar na aventura.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Kit Básico">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="kits">
+          <div class="product-art" aria-label="Imagem de Kit Ferramentas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_pickaxe.png" alt="Kit Ferramentas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>⛏️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">FERRAMENTAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Kit Ferramentas</h3>
+          <p>Conjunto de ferramentas para o começo.</p>
+          <div class="product-bottom"><strong class="price">R$ 7,00</strong><button type="button" data-product="Kit Ferramentas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="kits">
+          <div class="product-art" aria-label="Imagem de Kit Combate">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_sword.png" alt="Kit Combate" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>⚔️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">COMBATE</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Kit Combate</h3>
+          <p>Equipamentos de combate para sua aventura.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="Kit Combate">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="vips">
+          <div class="product-art" aria-label="Imagem de VIP Básico">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_chestplate.png" alt="VIP Básico" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🥉</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">VIP</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>VIP Básico</h3>
+          <p>Benefícios do plano de entrada.</p>
+          <div class="product-bottom"><strong class="price">R$ 10,00</strong><button type="button" data-product="VIP Básico">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="vips">
+          <div class="product-art" aria-label="Imagem de VIP Plus">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_chestplate.png" alt="VIP Plus" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🥈</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">VIP PLUS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>VIP Plus</h3>
+          <p>Plano intermediário com benefícios adicionais.</p>
+          <div class="product-bottom"><strong class="price">R$ 17,00</strong><button type="button" data-product="VIP Plus">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="vips">
+          <div class="product-art" aria-label="Imagem de VIP Premium">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/netherite_chestplate.png" alt="VIP Premium" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🥇</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">VIP PREMIUM</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>VIP Premium</h3>
+          <p>Plano especial com benefícios do servidor.</p>
+          <div class="product-bottom"><strong class="price">R$ 25,00</strong><button type="button" data-product="VIP Prêmio">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="chaves">
+          <div class="product-art" aria-label="Imagem de Chave Comum">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/tripwire_hook.png" alt="Chave Comum" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🗝️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CHAVE</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Chave Comum</h3>
+          <p>Chave para recompensas comuns.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Chave Comum">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="chaves">
+          <div class="product-art" aria-label="Imagem de Chave Rara">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/amethyst_shard.png" alt="Chave Rara" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🔑</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CHAVE RARA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Chave Rara</h3>
+          <p>Chave de raridade superior.</p>
+          <div class="product-bottom"><strong class="price">R$ 8,00</strong><button type="button" data-product="Chave Rara">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="chaves">
+          <div class="product-art" aria-label="Imagem de Chave Épica">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/echo_shard.png" alt="Chave Épica" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>✨</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CHAVE ÉPICA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Chave Épica</h3>
+          <p>Chave para recompensas épicas.</p>
+          <div class="product-bottom"><strong class="price">R$ 15,00</strong><button type="button" data-product="Chave Épica">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="crates">
+          <div class="product-art" aria-label="Imagem de Crate Comum">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/chest.png" alt="Crate Comum" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>📦</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CRATE</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Crate Comum</h3>
+          <p>Caixa de recompensas comuns.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Crate Comum">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="crates">
+          <div class="product-art" aria-label="Imagem de Crate Rara">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/ender_chest.png" alt="Crate Rara" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🎁</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CRATE RARA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Crate Rara</h3>
+          <p>Caixa com recompensas raras.</p>
+          <div class="product-bottom"><strong class="price">R$ 10,00</strong><button type="button" data-product="Crate Rara">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="crates">
+          <div class="product-art" aria-label="Imagem de Crate Lendária">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/shulker_box.png" alt="Crate Lendária" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🌟</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CRATE LENDÁRIA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Crate Lendária</h3>
+          <p>Caixa especial de recompensas.</p>
+          <div class="product-bottom"><strong class="price">R$ 20,00</strong><button type="button" data-product="Crate Lendária">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+      </div>
+      <p id="noProducts" class="muted hidden">Não há produtos nesta categoria.</p>
+    </section>
 
-        <!-- TELA 1: HOME (CATEGORIAS) -->
-        <div id="view-home" class="view-section active">
-            <h2 class="section-title">Categorias Populares</h2>
-            <div class="categories-grid">
-                <div class="category-card" onclick="abrirCategoria('vips')">
-                    <div class="category-info">
-                        <h3>👑 VIPs</h3>
-                        <p>Vantagens exclusivas no servidor</p>
-                    </div>
-                    <div class="btn-category">Ver produtos →</div>
-                </div>
-                <div class="category-card" onclick="abrirCategoria('kits')">
-                    <div class="category-info">
-                        <h3>⚔️ Kits & Combate</h3>
-                        <p>Equipamentos para dominar</p>
-                    </div>
-                    <div class="btn-category">Ver produtos →</div>
-                </div>
-                <div class="category-card" onclick="abrirCategoria('moedas')">
-                    <div class="category-info">
-                        <h3>🪙 Moedas</h3>
-                        <p>Saldo para a economia do servidor</p>
-                    </div>
-                    <div class="btn-category">Ver produtos →</div>
-                </div>
-                <div class="category-card" onclick="abrirCategoria('chaves')">
-                    <div class="category-info">
-                        <h3>🔑 Chaves & Crates</h3>
-                        <p>Caixas misteriosas e recompensas</p>
-                    </div>
-                    <div class="btn-category">Ver produtos →</div>
-                </div>
-            </div>
+    <section class="checkout panel hidden" id="checkout">
+      <div class="checkout-head"><div><p class="eyebrow">SEU PEDIDO</p><h2>Finalizar compra</h2></div><button type="button" class="back" id="back">← Voltar à loja</button></div>
+      <div class="checkout-grid">
+        <div>
+          <div class="chosen"><div class="product-icon" id="chosenIcon">🪙</div><div class="chosen-info"><strong id="chosenName"></strong><p>Produto selecionado</p></div><strong class="price" id="chosenPrice"></strong></div>
+          <label for="nickname">Nick no Minecraft</label><input id="nickname" maxlength="16" placeholder="Ex: SeuNick" autocomplete="off">
+          <p class="hint">Confira seu nick antes de continuar.</p><div class="total"><span>Total</span><strong id="total"></strong></div>
+        </div>
+        <div class="payment-panel"><h3>Pagamento seguro</h3><p class="muted">Você seguirá para o checkout Kiwify configurado para este produto.</p><button type="button" class="pay" id="continue">Continuar para pagamento →</button><p id="message" role="status" aria-live="polite"></p></div>
+      </div>
+    </section>
+  </main>
 
-            <!-- Vantagens -->
-            <div class="features-grid">
-                <div class="feature-box">
-                    <h4>⚡ Envio Imediato</h4>
-                    <p>Recebe o pacote automaticamente após a confirmação do pagamento.</p>
-                </div>
-                <div class="feature-box">
-                    <h4>🔒 Compra Segura</h4>
-                    <p>Pagamentos processados com total segurança e criptografia.</p>
-                </div>
-                <div class="feature-box">
-                    <h4>
-                        
+  <section class="support-strip" id="suporte"><div><p class="eyebrow">PRECISA DE AJUDA?</p><h2>Estamos aqui para ajudar.</h2><p>Entre em contato com a equipe do NexusCraft para tirar dúvidas sobre sua compra.</p></div><a href="https://discord.gg/hz5z6xGQ8" target="_blank" rel="noopener">Abrir Discord ↗</a></section>
+  <footer><a class="footer-brand" href="#inicio">NEXUS<span>CRAFT</span> SHOOP</a><span>© NexusCraft Shoop</span><a href="#inicio">Voltar ao topo ↑</a></footer>
+  <script src="/app.js"></script>
+</body>
+</html>
