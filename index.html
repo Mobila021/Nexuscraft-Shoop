@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050a15">
+  <meta name="description" content="Loja oficial NexusCraft — moedas, kits, VIPs, chaves e crates para Minecraft.">
+  <title>NexusCraft Shoop — Loja Oficial</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="NexusCraft Shoop - início">
+      <span class="brand-mark">N</span>
+      <span class="brand-name"><strong>NEXUS<span>CRAFT</span></strong><small>SHOOP</small></span>
+    </a>
+    <div class="topbar-right">
+      <span class="server-status"><i></i> JAVA + BEDROCK</span>
+      <a class="discord" href="#suporte">Suporte ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome" id="inicio">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> LOJA OFICIAL NEXUSCRAFT</p>
+        <h1>Fortaleça sua<br><span>próxima aventura.</span></h1>
+        <p>Encontre moedas, kits, VIPs e recompensas para evoluir no servidor.</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <span class="hero-cube">N</span><span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">◆</span>
+      </div>
+    </section>
+
+    <section class="category-section" aria-labelledby="categoriesTitle">
+      <div class="section-title-row">
+        <div><p class="eyebrow">EXPLORE A LOJA</p><h2 id="categoriesTitle">Categorias populares</h2></div>
+        <button class="text-link" type="button" data-category="todos">Ver tudo ↗</button>
+      </div>
+      <div class="category-grid">
+        <button type="button" class="category-card active" data-category="todos">
+          <span class="category-art"><span class="category-symbol">⌂</span></span>
+          <span class="category-copy"><strong>Todos os produtos</strong><small>Veja o catálogo completo</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="moedas">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_ingot.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>Moedas</strong><small>Saldo para sua jornada</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="kits">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_sword.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>Kits</strong><small>Prepare-se para lutar</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="vips">
+          <span class="category-art"><img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/netherite_chestplate.png" alt="" loading="lazy"></span>
+          <span class="category-copy"><strong>VIPs</strong><small>Desbloqueie benefícios</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="chaves">
+          <span class="category-art"><span class="category-symbol" aria-hidden="true">🔑</span></span>
+          <span class="category-copy"><strong>Chaves</strong><small>Abra novas recompensas</small></span><span class="category-arrow">↗</span>
+        </button>
+        <button type="button" class="category-card" data-category="crates">
+          <span class="category-art"><span class="category-symbol" aria-hidden="true">📦</span></span>
+          <span class="category-copy"><strong>Crates</strong><small>Surpresas para você</small></span><span class="category-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="shop hidden" id="loja">
+      <button type="button" class="text-link back-categories" id="backCategories">← Voltar às categorias</button>
+      <div class="section-head">
+        <div><p class="eyebrow">PRODUTOS DA CATEGORIA</p><h2 id="categoryTitle">Todos os produtos</h2><p class="muted" id="categoryDescription">Escolha seu próximo item e continue sua aventura.</p></div>
+        <span class="secure"><span>✓</span> CHECKOUT SEGURO</span>
+      </div>
+      <span id="productCount" class="hidden">16 produtos</span><div class="products" id="products">
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 1.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_ingot.png" alt="1.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🪙</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">MOEDAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>1.000 Moedas</h3>
+          <p>Pacote inicial para a economia do servidor.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="1.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 5.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/gold_block.png" alt="5.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💰</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">MAIS MOEDAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>5.000 Moedas</h3>
+          <p>Mais saldo para suas compras no servidor.</p>
+          <div class="product-bottom"><strong class="price">R$ 8,00</strong><button type="button" data-product="5.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 10.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond.png" alt="10.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💎</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">MOEDAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>10.000 Moedas</h3>
+          <p>Um pacote maior para juntar saldo.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="10.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="moedas">
+          <div class="product-art" aria-label="Imagem de 50.000 Moedas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/emerald.png" alt="50.000 Moedas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>💎</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">PACOTE ESPECIAL</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>50.000 Moedas</h3>
+          <p>Pacote especial para ampliar seu saldo.</p>
+          <div class="product-bottom"><strong class="price">R$ 20,00</strong><button type="button" data-product="50.000 Moedas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="kits">
+          <div class="product-art" aria-label="Imagem de Kit Básico">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/chest.png" alt="Kit Básico" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🎒</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">KIT</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Kit Básico</h3>
+          <p>Itens iniciais para ajudar na aventura.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Kit Básico">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="kits">
+          <div class="product-art" aria-label="Imagem de Kit Ferramentas">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_pickaxe.png" alt="Kit Ferramentas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>⛏️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">FERRAMENTAS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Kit Ferramentas</h3>
+          <p>Conjunto de ferramentas para o começo.</p>
+          <div class="product-bottom"><strong class="price">R$ 7,00</strong><button type="button" data-product="Kit Ferramentas">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="kits">
+          <div class="product-art" aria-label="Imagem de Kit Combate">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_sword.png" alt="Kit Combate" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>⚔️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">COMBATE</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Kit Combate</h3>
+          <p>Equipamentos de combate para sua aventura.</p>
+          <div class="product-bottom"><strong class="price">R$ 12,00</strong><button type="button" data-product="Kit Combate">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="vips">
+          <div class="product-art" aria-label="Imagem de VIP Básico">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_chestplate.png" alt="VIP Básico" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🥉</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">VIP</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>VIP Básico</h3>
+          <p>Benefícios do plano de entrada.</p>
+          <div class="product-bottom"><strong class="price">R$ 10,00</strong><button type="button" data-product="VIP Básico">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="vips">
+          <div class="product-art" aria-label="Imagem de VIP Plus">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_chestplate.png" alt="VIP Plus" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🥈</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">VIP PLUS</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>VIP Plus</h3>
+          <p>Plano intermediário com benefícios adicionais.</p>
+          <div class="product-bottom"><strong class="price">R$ 17,00</strong><button type="button" data-product="VIP Plus">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="vips">
+          <div class="product-art" aria-label="Imagem de VIP Premium">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/netherite_chestplate.png" alt="VIP Premium" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🥇</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">VIP PREMIUM</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>VIP Premium</h3>
+          <p>Plano especial com benefícios do servidor.</p>
+          <div class="product-bottom"><strong class="price">R$ 25,00</strong><button type="button" data-product="VIP Prêmio">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="chaves">
+          <div class="product-art" aria-label="Imagem de Chave Comum">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/tripwire_hook.png" alt="Chave Comum" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🗝️</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CHAVE</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Chave Comum</h3>
+          <p>Chave para recompensas comuns.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Chave Comum">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="chaves">
+          <div class="product-art" aria-label="Imagem de Chave Rara">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/amethyst_shard.png" alt="Chave Rara" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🔑</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CHAVE RARA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Chave Rara</h3>
+          <p>Chave de raridade superior.</p>
+          <div class="product-bottom"><strong class="price">R$ 8,00</strong><button type="button" data-product="Chave Rara">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="chaves">
+          <div class="product-art" aria-label="Imagem de Chave Épica">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/echo_shard.png" alt="Chave Épica" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>✨</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CHAVE ÉPICA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Chave Épica</h3>
+          <p>Chave para recompensas épicas.</p>
+          <div class="product-bottom"><strong class="price">R$ 15,00</strong><button type="button" data-product="Chave Épica">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="crates">
+          <div class="product-art" aria-label="Imagem de Crate Comum">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/chest.png" alt="Crate Comum" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>📦</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CRATE</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Crate Comum</h3>
+          <p>Caixa de recompensas comuns.</p>
+          <div class="product-bottom"><strong class="price">R$ 5,00</strong><button type="button" data-product="Crate Comum">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="crates">
+          <div class="product-art" aria-label="Imagem de Crate Rara">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/ender_chest.png" alt="Crate Rara" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🎁</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CRATE RARA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Crate Rara</h3>
+          <p>Caixa com recompensas raras.</p>
+          <div class="product-bottom"><strong class="price">R$ 10,00</strong><button type="button" data-product="Crate Rara">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product" data-category="crates">
+          <div class="product-art" aria-label="Imagem de Crate Lendária">
+            <img src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/shulker_box.png" alt="Crate Lendária" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+            <span class="image-fallback" hidden>🌟</span>
+            <span class="art-glow" aria-hidden="true"></span>
+          </div>
+          <div class="product-meta"><span class="pill">CRATE LENDÁRIA</span><span class="stock-dot">DISPONÍVEL</span></div>
+          <h3>Crate Lendária</h3>
+          <p>Caixa especial de recompensas.</p>
+          <div class="product-bottom"><strong class="price">R$ 20,00</strong><button type="button" data-product="Crate Lendária">Comprar agora <span aria-hidden="true">→</span></button></div>
+        </article>
+      </div>
+      <p id="noProducts" class="muted hidden">Não há produtos nesta categoria.</p>
+    </section>
+
+    <section class="product-detail panel hidden" id="productDetail" aria-live="polite">
+      <div class="checkout-head"><div><p class="eyebrow">DETALHES DO PRODUTO</p><h2 id="detailTitle">Produto</h2></div><button type="button" class="back" id="detailBack">← Voltar aos produtos</button></div>
+      <div class="detail-grid">
+        <div class="detail-showcase"><div class="detail-icon" id="detailIcon">🎒</div><p class="detail-tag" id="detailCategory">PRODUTO NEXUSCRAFT</p></div>
+        <div class="detail-info"><p id="detailDescription" class="muted"></p><h3>O que vem neste produto?</h3><div id="detailContents" class="detail-contents"></div><div class="detail-buy"><strong class="price" id="detailPrice"></strong><button type="button" class="pay" id="detailBuy">Comprar agora →</button></div><p class="detail-note">Confira os itens e benefícios antes de comprar. O conteúdo exato depende da configuração do servidor.</p></div>
+      </div>
+    </section>
+
+    <section class="checkout panel hidden" id="checkout">
+      <div class="checkout-head"><div><p class="eyebrow">SEU PEDIDO</p><h2>Finalizar compra</h2></div><button type="button" class="back" id="back">← Voltar à loja</button></div>
+      <div class="checkout-grid">
+        <div>
+          <div class="chosen"><div class="product-icon" id="chosenIcon">🪙</div><div class="chosen-info"><strong id="chosenName"></strong><p>Produto selecionado</p></div><strong class="price" id="chosenPrice"></strong></div>
+          <label for="nickname">Nick no Minecraft</label><input id="nickname" maxlength="16" placeholder="Ex: SeuNick" autocomplete="off">
+          <p class="hint">Confira seu nick antes de continuar.</p><div class="total"><span>Total</span><strong id="total"></strong></div>
+        </div>
+        <div class="payment-panel"><h3>Pagamento seguro</h3><p class="muted">Você seguirá para o checkout Kiwify configurado para este produto.</p><button type="button" class="pay" id="continue">Continuar para pagamento →</button><p id="message" role="status" aria-live="polite"></p></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="support-strip" id="suporte"><div><p class="eyebrow">PRECISA DE AJUDA?</p><h2>Estamos aqui para ajudar.</h2><p>Entre em contato com a equipe do NexusCraft para tirar dúvidas sobre sua compra.</p></div><a href="https://discord.gg/hz5z6xGQ8" target="_blank" rel="noopener">Abrir Discord ↗</a></section>
+  <footer><a class="footer-brand" href="#inicio">NEXUS<span>CRAFT</span> SHOOP</a><span>© NexusCraft Shoop</span><a href="#inicio">Voltar ao topo ↑</a></footer>
+  <script src="/app.js"></script>
+</body>
+</html>
