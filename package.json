@@ -1,8 +1,13 @@
 {
   "name": "nexuscraft-shoop",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "NexusCraft Shoop com catálogo atualizado e preparação para checkout Kiwify",
+  "description": "Loja web do servidor Minecraft NexusCraft",
+  "main": "server.js",
   "scripts": { "start": "node server.js" },
-  "dependencies": { "express": "^4.21.2" }
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "4.21.2",
+    "pg": "^8.13.1"
+  }
 }

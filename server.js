@@ -1,5 +1,34 @@
 const express = require('express');
 const path = require('path');
+const { Pool } = require('pg');
+
+const pool = process.env.DATABASE_URL ? new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.PGSSL === 'true' ? { rejectUnauthorized: false } : undefined,
+  connectionTimeoutMillis: 5000,
+  max: 5
+}) : null;
+
+async function initializeDatabase() {
+  if (!pool) {
+    console.warn('DATABASE_URL não configurada; recursos de banco desativados.');
+    return;
+  }
+  await pool.query(`CREATE TABLE IF NOT EXISTS orders (
+    id BIGSERIAL PRIMARY KEY,
+    provider TEXT NOT NULL DEFAULT 'kiwify',
+    transaction_id TEXT UNIQUE,
+    player_nick TEXT NOT NULL,
+    product_name TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','approved','queued','delivered','refunded','cancelled','error')),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    approved_at TIMESTAMPTZ,
+    delivered_at TIMESTAMPTZ,
+    payload JSONB
+  )`);
+  console.log('Tabela orders verificada no PostgreSQL.');
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -58,6 +87,25 @@ app.post('/api/checkout', (req, res) => {
 
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'NexusCraft Shoop' }));
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`NexusCraft Shoop rodando na porta ${PORT}`);
+app.get('/health/db', async (_req, res) => {
+  if (!pool) return res.status(503).json({ ok: false, database: 'not_configured' });
+  try {
+    await pool.query('SELECT 1');
+    return res.json({ ok: true, database: 'connected' });
+  } catch (err) {
+    console.error('Falha ao verificar PostgreSQL:', err.message);
+    return res.status(503).json({ ok: false, database: 'unavailable' });
+  }
 });
+
+async function start() {
+  try { await initializeDatabase(); }
+  catch (err) {
+    console.error('Não foi possível inicializar o PostgreSQL:', err.message);
+    process.exit(1);
+  }
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`NexusCraft Shoop rodando na porta ${PORT}`);
+  });
+}
+start();
