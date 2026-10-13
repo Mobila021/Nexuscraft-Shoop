@@ -397,6 +397,21 @@ document.querySelectorAll('.category-card, [data-category="todos"].text-link').f
     card.append(art, meta, heading, description, bottom);
     grid.append(card);
   });
+
+  // Organiza os livros por raridade: Comum, Básico, Raro e Lendário.
+  // Reordena tanto os cards estáticos do HTML quanto os criados acima.
+  const tierOrder = { 'Comum': 0, 'Básico': 1, 'Raro': 2, 'Lendário': 3 };
+  const bookCards = Array.from(grid.querySelectorAll('.product[data-category="enchants"]'));
+  bookCards.sort((a, b) => {
+    const nameA = a.querySelector('[data-product]')?.dataset.product || '';
+    const nameB = b.querySelector('[data-product]')?.dataset.product || '';
+    const tierA = products[nameA]?.tier || a.querySelector('.pill')?.textContent?.split(' · ')[0] || '';
+    const tierB = products[nameB]?.tier || b.querySelector('.pill')?.textContent?.split(' · ')[0] || '';
+    const orderA = tierOrder[tierA.charAt(0).toUpperCase() + tierA.slice(1).toLowerCase()] ?? 99;
+    const orderB = tierOrder[tierB.charAt(0).toUpperCase() + tierB.slice(1).toLowerCase()] ?? 99;
+    return orderA - orderB || nameA.localeCompare(nameB, 'pt-BR');
+  });
+  bookCards.forEach(card => grid.append(card));
 })();
 
 document.querySelectorAll('[data-product]').forEach(button => {
