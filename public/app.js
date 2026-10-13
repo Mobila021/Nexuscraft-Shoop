@@ -8,7 +8,7 @@ const products = {
   'Kit Combate': { price: 12, category: 'kits', icon: '⚔️' },
   'VIP Básico': { price: 10, category: 'vips', icon: '🥉' },
   'VIP Plus': { price: 17, category: 'vips', icon: '🥈' },
-  'VIP Prêmio': { price: 25, category: 'vips', icon: '🥇' },
+  'VIP Prêmio': { price: 25, category: 'vips', icon: '🥇', displayName: 'VIP Premium' },
   'Chave Comum': { price: 5, category: 'chaves', icon: '🗝️' },
   'Chave Rara': { price: 8, category: 'chaves', icon: '🔑' },
   'Chave Épica': { price: 15, category: 'chaves', icon: '✨' },
@@ -20,11 +20,9 @@ let selectedProduct = null;
 const money = value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const $ = id => document.getElementById(id);
 
-// Evita cartões duplicados caso um produto esteja repetido no HTML.
 const seenProducts = new Set();
 document.querySelectorAll('.product').forEach(card => {
-  const buyButton = card.querySelector('[data-product]');
-  const name = buyButton?.dataset.product;
+  const name = card.querySelector('[data-product]')?.dataset.product;
   if (!name) return;
   if (seenProducts.has(name)) card.remove();
   else seenProducts.add(name);
@@ -56,8 +54,10 @@ document.querySelectorAll('.category').forEach(button => button.addEventListener
 }));
 
 document.querySelectorAll('[data-product]').forEach(button => button.addEventListener('click', () => {
-  selectedProduct = { name: button.dataset.product, ...products[button.dataset.product] };
-  $('chosenName').textContent = selectedProduct.name;
+  const key = button.dataset.product;
+  if (!products[key]) { $('message').textContent = 'Este produto ainda não está configurado.'; return; }
+  selectedProduct = { name: key, ...products[key] };
+  $('chosenName').textContent = selectedProduct.displayName || selectedProduct.name;
   $('chosenPrice').textContent = money(selectedProduct.price);
   $('chosenIcon').textContent = selectedProduct.icon;
   $('total').textContent = money(selectedProduct.price);
@@ -66,19 +66,31 @@ document.querySelectorAll('[data-product]').forEach(button => button.addEventLis
   $('checkout').classList.remove('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }));
-function backToShop() { $('checkout').classList.add('hidden'); $('loja').classList.remove('hidden'); $('message').textContent = ''; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+function backToShop() {
+  $('checkout').classList.add('hidden');
+  $('loja').classList.remove('hidden');
+  $('message').textContent = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 $('back').addEventListener('click', backToShop);
 $('continue').addEventListener('click', async () => {
   const nick = $('nickname').value.trim();
   if (!selectedProduct) { $('message').textContent = 'Selecione um produto.'; return; }
-  if (!/^[A-Za-z0-9_]{3,16}$/.test(nick)) { $('message').textContent = 'Digite um nick de 3 a 16 caracteres, usando letras, números ou _. '; $('nickname').focus(); return; }
+  if (!/^[A-Za-z0-9_]{3,16}$/.test(nick)) {
+    $('message').textContent = 'Digite um nick de 3 a 16 caracteres, usando letras, números ou _.';
+    $('nickname').focus(); return;
+  }
   $('continue').disabled = true;
   $('message').textContent = 'Verificando o checkout...';
   try {
-    const response = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ produto: selectedProduct.name, nick }) });
+    const response = await fetch('/api/checkout', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ produto: selectedProduct.name, nick })
+    });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || 'Não foi possível iniciar o checkout.');
-    // O nick não é incluído na URL até confirmar o mecanismo de campo personalizado suportado pela Kiwify.
+    if (!data.url) throw new Error('O checkout não retornou um link válido.');
     window.location.assign(data.url);
   } catch (error) {
     $('message').textContent = error.message || 'Erro ao abrir o checkout.';
