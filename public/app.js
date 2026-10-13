@@ -30,6 +30,11 @@ const categoryCopy = {
 };
 
 function filterCategory(category) {
+  $('welcomeView')?.classList.add('hidden');
+  document.querySelector('.welcome')?.classList.add('hidden');
+  document.querySelector('.category-section')?.classList.add('hidden');
+  document.querySelector('.support-strip')?.classList.add('hidden');
+  document.querySelector('footer')?.classList.add('hidden');
   $('loja').classList.remove('hidden');
   document.querySelectorAll('.category-card').forEach(button => {
     button.classList.toggle('active', button.dataset.category === category);
@@ -45,8 +50,18 @@ function filterCategory(category) {
   });
   $('productCount').textContent = `${visible} produto${visible === 1 ? '' : 's'}`;
   $('noProducts').classList.toggle('hidden', visible > 0);
-  $('loja').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function backToCategories() {
+  $('loja').classList.add('hidden');
+  document.querySelector('.welcome')?.classList.remove('hidden');
+  document.querySelector('.category-section')?.classList.remove('hidden');
+  document.querySelector('.support-strip')?.classList.remove('hidden');
+  document.querySelector('footer')?.classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+$('backCategories').addEventListener('click', backToCategories);
 
 document.querySelectorAll('.category-card, [data-category="todos"].text-link').forEach(button => {
   button.addEventListener('click', () => filterCategory(button.dataset.category || 'todos'));

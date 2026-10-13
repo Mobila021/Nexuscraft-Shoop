@@ -97,3 +97,5 @@ footer a{text-decoration:none}.footer-brand{color:var(--text);font-weight:950;le
  footer{padding:18px 13px;flex-wrap:wrap;font-size:.68rem}
 }
 @media(max-width:360px){.server-status{display:none}.product-art{height:108px}.product-art img{width:70px;height:70px}.product h3{font-size:.82rem}.product>p{font-size:.68rem}.price{font-size:1rem}.product button{font-size:.65rem}}
+
+.back-categories{display:inline-flex;align-items:center;margin:0 0 18px;padding:10px 0;color:var(--cyan,#7be8ff);background:transparent;border:0;cursor:pointer;font:inherit;font-weight:700}
